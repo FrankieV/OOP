@@ -39,7 +39,7 @@ int main()
 	cout << "La media totale degli studenti e': ";
 	cout << MediaTotaleStudenti << endl << endl;
 	cout << "SECONDO PUNTO ESERCITAZIONE:" << endl;
-	cout << "Lo studente con la media migliore e': ";
+	cout << "Lo studente con la media migliore e': " << endl;
 	Stu[StudenteConLaMediaMigliore].stampaStudente();	
 	cout << endl << endl;
 
@@ -143,5 +143,29 @@ int main()
 				cout << "DICEMBRE" << endl;
 				break;				
 		}
+	cout << endl;
+
+	//Ordinamento studenti con riferimento alla data di nascita
+	cout << "QUINTO PUNTO ESERCITAZIONE: " << endl;
+	Studente StudenteProvvisorio;	
+	for( int i = 0; i < dim; i++)
+		{
+			for( int j= 0; j < dim; j++)
+				{
+					if( i != j)
+						{
+							if(( Stu[i].StudentePiuGiovaneDi( Stu[j] ) == false ) && j > i)
+								{
+									StudenteProvvisorio = Stu[i];
+									Stu[i] = Stu[j];
+									Stu[j] = StudenteProvvisorio;		
+								}
+						}
+				}		
+		}
+	cout << "Stampa delle Matricole in base all'anno di nascita degli studenti ( dal più giovane al più vecchio): ";
+	for( int i = 0; i < dim; i++ )
+		cout << Stu[i].getNumeroMatricola() << " ";
+	cout << endl << endl;
 	return 0;
 }

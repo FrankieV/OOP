@@ -126,7 +126,7 @@ bool Studente::StudentePiuGiovaneDi( const Studente &S) const
 		int MeseDiNascitaSecondoStudente = S.DataNascita.getMese();
 		int GiornoDiNascitaPrimoStudente = DataNascita.getGiorno();
 		int GiornoDiNascitaSecondoStudente = S.DataNascita.getGiorno();
-		if( AnnoDiNascitaPrimoStudente > AnnoDiNascitaSecondoStudente)
+		if( AnnoDiNascitaPrimoStudente > AnnoDiNascitaSecondoStudente )
 			return true;
 		if(( AnnoDiNascitaPrimoStudente == AnnoDiNascitaSecondoStudente ) && ( MeseDiNascitaPrimoStudente > MeseDiNascitaSecondoStudente))
 			return true;
