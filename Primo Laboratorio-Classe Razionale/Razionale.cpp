@@ -42,7 +42,7 @@ int Razionale::getDenominatore() const
 	return Denominatore;
 }
 
-//Definizione della funzione 	membro converti della Classe Razionale
+//Definizione della funzione membro converti della Classe Razionale
 double Razionale::converti() const
 {
 	double Divisione = (( static_cast <double> ( Numeratore )) / ( static_cast <double> ( Denominatore )));
