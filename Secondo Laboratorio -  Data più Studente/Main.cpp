@@ -163,7 +163,7 @@ int main()
 						}
 				}		
 		}
-	cout << "Stampa delle Matricole in base alla data di nascita degli studenti ( dal più giovane al più vecchio): ";
+	cout << "Stampa delle Matricole in base all'anno di nascita degli studenti ( dal più giovane al più vecchio): ";
 	for( int i = 0; i < dim; i++ )
 		cout << Stu[i].getNumeroMatricola() << " ";
 	cout << endl << endl;

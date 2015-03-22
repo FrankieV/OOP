@@ -12,7 +12,20 @@ Data::Data(const Data &D) : Giorno(D.Giorno), Mese(D.Mese), Anno(D.Anno){}
 //funzione che definisce il giorno
 void Data::setGiorno( int gg )
 	{
-		Giorno = ( gg >= 1 && gg <= 31)? gg : 1; // convalida il giorno			
+		if( getMese() == 2 && getGiorno() > 28)
+			Giorno = 1;
+		else 
+			{
+				if(( getMese() == 4 || getMese() == 6 || getMese() == 9 || getMese() == 10 ) && getGiorno() > 30)
+					Giorno = 1;
+				else 
+					{
+						if( gg <= 1 || gg >= 31 )
+							Giorno = 1;
+						else
+							Giorno = gg;
+					}
+			}				
 	}//fine della funzione setGiorno
 
 //funzione che definisce il mese
@@ -48,11 +61,11 @@ int Data::getAnno() const
 //funzione che legge una Data
 void Data::leggiData()
 { 
-	cin >> Giorno >> Mese >> Anno;//fine funzione leggiData
+	cin >> Giorno >> Mese >> Anno;
 	setGiorno(Giorno);
 	setMese(Mese);
 	setAnno(Anno);
-}
+}//fine funzione leggiData
 
 //funzione che stampa una Data
 void Data::stampaData() const
@@ -66,5 +79,5 @@ void Data::stampaData() const
 	else	
 		cout << Mese << "/";
 	cout << Anno;
-}
+}//fine funzione stampaData
 
