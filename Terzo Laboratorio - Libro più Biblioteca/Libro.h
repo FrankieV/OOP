@@ -14,6 +14,7 @@ class Libro
 		int getCodice() const;
 		char* getTitolo() const;
 		char* getAutore() const;
+		void setLibro( int codice, const char* titolo, const char* autore );
 		void setLibro( const Libro& l );
 		void stampaLibro() const;
 	private:

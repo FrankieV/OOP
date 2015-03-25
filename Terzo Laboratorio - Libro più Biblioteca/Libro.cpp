@@ -5,7 +5,13 @@
 using namespace std;
 
 //Costruttore senza parametri classe Libro
-Libro::Libro():Codice(0), Titolo( '\0' ), Autore( '\0' ){}
+Libro::Libro():Codice(0)
+{
+	Titolo = new char [1];
+	Titolo[0] = '\0';
+	Autore = new char [1];	
+	Autore[0] = '\0';
+}
 
 //Costruttore per copia classe Libro
 Libro::Libro( const Libro& l): Codice(l.Codice)
@@ -52,7 +58,7 @@ void Libro::setAutore( const char *aut )
 {
 	if( Autore != 0)		
 		delete [] Autore;
-	Titolo = new char [ strlen( aut ) + 1 ];
+	Autore = new char [ strlen( aut ) + 1 ];
 	strcpy( Autore, aut );
 }
 
@@ -74,6 +80,17 @@ char* Libro::getAutore() const
 	return Autore;
 }
 
+//Definizone della funzione membro setLibro a tre parametri
+void Libro::setLibro( int codice, const char* titolo, const char* autore )
+{
+	Codice = codice;
+	Titolo = 0;
+	setTitolo( titolo );
+	Autore = 0;
+	setAutore( autore );
+}
+
+//Definizione funzione membro setLibro per copia
 void Libro::setLibro( const Libro& l ) 
 {
 	Codice = l.Codice;
@@ -82,3 +99,16 @@ void Libro::setLibro( const Libro& l )
 	Autore = 0;
 	setAutore( l.Autore );
 }
+
+//Definizione funzione membro stampaLibro 
+void Libro::stampaLibro() const
+{
+	cout << endl;	
+	cout << "Il codice del libro è:" << endl;
+	cout << Codice << endl << endl;
+	cout << "Il titolo del libro è:" << endl;
+	cout << Titolo << endl << endl;
+	cout << "L'autore del libro è:" << endl;
+	cout << Autore << endl << endl;
+}
+
