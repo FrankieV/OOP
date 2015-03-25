@@ -1,0 +1,10 @@
+#include <iostream>
+#include "Biblioteca.h"
+
+using namespace std;
+
+Biblioteca::Biblioteca( int cap ) : Capacita(cap), int NumeroDiLibri(0)
+{
+	if( Capacità > 0)
+		Collezione = new Libro[Capacita];
+}

@@ -13,7 +13,11 @@ Studente::Studente(): NumeroMatricola(1), VotoEsame(0), DataNascita(), EsamiSupe
 
 //costruttore Studente per Copia
 Studente::Studente( const Studente &S ): NumeroMatricola( S.NumeroMatricola ), VotoEsame( S.VotoEsame ), DataNascita( S.DataNascita ), 
-							EsamiSuperati( S.EsamiSuperati ), EsamiCorsoDiLaurea( S.EsamiCorsoDiLaurea ){}
+							EsamiSuperati( S.EsamiSuperati ), EsamiCorsoDiLaurea( S.EsamiCorsoDiLaurea )
+	{
+		for( int i = 0; i < 25; i++)
+			Esami[i] = S.Esami[i];	
+	}
 
 //funzione che definisce il numero di matricola dello Studente
 void Studente::setNumeroMatricola( int NumMat )
