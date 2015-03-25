@@ -16,18 +16,18 @@ Libro::Libro():Codice(0)
 //Costruttore per copia classe Libro
 Libro::Libro( const Libro& l): Codice(l.Codice)
 {
-	Titolo = 0;
+//	Titolo = 0;
 	setTitolo( l.Titolo);
-	Autore = 0;
+//	Autore = 0;
 	setAutore( l.Autore );	
 }
 
 //Costruttore con tre parametri classe Libro
 Libro::Libro( int Cod, char * Tit, char * Aut ) : Codice(Cod)
 {
-	Titolo = 0;
+//	Titolo = 0;
 	setTitolo( Tit );
-	Autore = 0;
+//	Autore = 0;
 	setAutore( Aut );
 }
 
@@ -47,8 +47,8 @@ void Libro::setCodice( int cod )
 //Definizione funzione membro setTitolo
 void Libro::setTitolo( const char *tit )
 {
-	if( Titolo != 0)		
-		delete [] Titolo;
+//	if( Titolo != 0 )		
+//		delete [] Titolo;
 	Titolo = new char [ strlen( tit ) + 1 ];
 	strcpy( Titolo, tit );
 }
@@ -56,8 +56,8 @@ void Libro::setTitolo( const char *tit )
 //Definizione funzione membro setAutore
 void Libro::setAutore( const char *aut )
 {
-	if( Autore != 0)		
-		delete [] Autore;
+//	if( Autore != 0 )		
+//		delete [] Autore;
 	Autore = new char [ strlen( aut ) + 1 ];
 	strcpy( Autore, aut );
 }
@@ -84,9 +84,9 @@ char* Libro::getAutore() const
 void Libro::setLibro( int codice, const char* titolo, const char* autore )
 {
 	Codice = codice;
-	Titolo = 0;
+//	Titolo = 0;
 	setTitolo( titolo );
-	Autore = 0;
+//	Autore = 0;
 	setAutore( autore );
 }
 
@@ -94,9 +94,9 @@ void Libro::setLibro( int codice, const char* titolo, const char* autore )
 void Libro::setLibro( const Libro& l ) 
 {
 	Codice = l.Codice;
-	Titolo = 0;
+//	Titolo = 0;
 	setTitolo( l.Titolo );
-	Autore = 0;
+//	Autore = 0;
 	setAutore( l.Autore );
 }
 
