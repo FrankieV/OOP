@@ -1,0 +1,113 @@
+#include <iostream>
+using namespace std;
+#include "Contatto.h"
+
+Contatto::Contatto(){}
+
+Contatto::Contatto( MyString No, MyString Co): Nome( No ), Cognome( Co ){}
+
+void Contatto::setNome( const MyString& No )
+{
+	Nome = No;
+}
+
+void Contatto::setCognome( const MyString& Co)
+{
+	Cognome = Co;
+}
+
+void Contatto::setNumeroTelefonico( const MyString& Num)
+{
+	Numero = Num;
+}
+
+void Contatto::setEmail( const MyString& Em)
+{
+	Email = Em;
+}
+
+MyString Contatto::getNome() const
+{
+	return Nome;
+}
+
+MyString Contatto::getCognome() const
+{
+	return Cognome;
+}
+
+MyString Contatto::getNumeroTelefonico() const
+{
+	return Numero;
+}
+
+MyString Contatto::getEmail() const
+{
+	return Email;
+}
+
+bool Contatto::operator < ( const Contatto& c ) const
+{
+	if( Cognome == c.Cognome )
+			{
+				if( Nome < c.Nome ) 
+					return true;			
+			}
+	if( Cognome < c.Cognome)
+			return true;
+	return false;
+}
+
+bool Contatto::operator > ( const Contatto& c ) const
+{
+	if( Cognome == c.Cognome )
+			{
+				if( Nome > c.Nome ) 
+					return true;			
+			}
+	if( Cognome > c.Cognome)
+			return true;
+	return false;
+}
+
+bool Contatto::operator == ( const Contatto& c ) const
+{
+	if(( Cognome == c.Cognome ) && ( Nome == c.Nome ) && ( Numero == c.Numero ) && ( Email == c.Email ))
+		return true;
+	return false;
+}
+
+bool Contatto::operator != ( const Contatto& c ) const
+{
+	if(( Nome == Nome ) == false )	
+		return true;	
+	if(( Cognome == c.Cognome ) == false )
+		return true;	
+	if(( Numero == c.Numero ) == false )
+		return true;
+	if(( Email == c.Email ) == false)
+		return true;
+	return false;
+}
+
+istream& operator>>(istream& in, Contatto& c)
+{
+	cout << "-------------------------------" << endl;
+	cout << "Inserisci Nome : ";
+	in >> c.Nome;
+	cout <<"Inserisci Cognome : ";
+	in >> c.Cognome;
+	cout << "Inserisci Numero : ";
+	in >> c.Numero;
+	cout << "Inserisci Email : ";
+	in >> c.Email;
+}
+
+ostream& operator << ( ostream& out, const Contatto& c)
+{
+	out << "------------------------------" << endl;
+	out << "Nome : " << c.Nome << endl;
+	out << "Cognome : " << c.Cognome << endl;
+	out << "Numero : "  << c.Numero << endl;
+	out << "Email : " << c.Email << endl;
+}
