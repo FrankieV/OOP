@@ -18,8 +18,7 @@ class MyString
 		bool operator==(const MyString&) const;
 		bool operator<=(const MyString&) const;
 		bool operator<(const MyString&) const;
-		bool operator>=(const My
-		String&) const;
+		bool operator>=(const MyString&) const;
 		bool operator>(const MyString&) const;
 		const char& operator[](unsigned int) const;
 		char& operator[](unsigned int);
