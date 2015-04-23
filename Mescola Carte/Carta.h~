@@ -20,6 +20,7 @@ class Carta
 	private:
 		int Valore;
 		string Seme;
+		int numeroCarta;
 		static int Count;
 		static int CountCarte;
 };

@@ -66,7 +66,6 @@ int Carta::getCountCarte() const
 
 ostream &operator << ( ostream& o, const Carta& c)
 {
-	cout << "______________________________________" << endl;
 	o << "Carta Numero " << c.numeroCarta << " : "<< c.Valore << " di " << c.Seme << endl;
 }
 
