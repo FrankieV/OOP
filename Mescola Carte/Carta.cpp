@@ -10,6 +10,7 @@ Carta::Carta()
 {
 	Count = ( Count >= 0 && Count <= 9  )? Count+1 : 1;
 	CountCarte++;
+	numeroCarta = CountCarte;
 	setValore(Count);
 	setSeme(CountCarte);
 }
@@ -53,9 +54,19 @@ const string& Carta::getSeme() const
 	return Seme;
 }
 
+int Carta::getCount() const
+{
+	return Count;
+}
+
+int Carta::getCountCarte() const
+{
+	return CountCarte;
+}
+
 ostream &operator << ( ostream& o, const Carta& c)
 {
-	o << c.Valore << " di " << c.Seme;
+	o << "Carta Numero " << c.numeroCarta << " : "<< c.Valore << " di " << c.Seme << endl;
 }
 
 const Carta& Carta::operator=(const Carta& c)

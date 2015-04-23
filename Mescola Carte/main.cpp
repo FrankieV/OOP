@@ -19,12 +19,12 @@ void Mescola( list<Carta> &l)
 		{
 			it1 = l.begin();
 			it2 = l.begin();			
-			countCarta1 = rand()%39;
+			countCarta1 = rand()%40;
 			for( int i = 0; i < countCarta1; i++)
 				it1++;
-			countCarta2 = rand()%39;
+			countCarta2 = rand()%40;
 			while( countCarta1 == countCarta2)
-				countCarta2 = rand()%39;
+				countCarta2 = rand()%40;
 			for( int i = 0; i < countCarta2; i++)
 				it2++;
 			tmp = *it1;
@@ -47,7 +47,6 @@ int main()
 		{
 			cout << *it << endl;	
 		}			
-
 	return 0;
 }
 

@@ -15,7 +15,7 @@ void Mescola( list<Carta> &l)
 	list<Carta>::iterator it1;
 	list<Carta>::iterator it2;
 	countMescolate = rand()%400;
-	for( int i = 0; i < countMescolate; i++ )
+	for( int i = 0; i <= countMescolate; i++ )
 		{
 			it1 = l.begin();
 			it2 = l.begin();			
@@ -31,7 +31,7 @@ void Mescola( list<Carta> &l)
 			*it1 = *it2;
 			*it2 = tmp;		
 		}
-	cout << countMescolate;
+	//cout << countMescolate;
 }
 
 int main()
@@ -47,7 +47,6 @@ int main()
 		{
 			cout << *it << endl;	
 		}			
-
 	return 0;
 }
 

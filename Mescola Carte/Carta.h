@@ -15,10 +15,12 @@ class Carta
 		int getValore() const;
 		const string& getSeme() const;
 		int getCount() const;
+		int getCountCarte() const;
 		const Carta& operator=(const Carta& c);
 	private:
 		int Valore;
 		string Seme;
+		int numeroCarta;
 		static int Count;
 		static int CountCarte;
 };
