@@ -54,10 +54,9 @@ int main()
 			l.push_back(carta); 
 		}	
 	Mescola( l );	
-	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++)
-		{
-			cout << *it << endl;	
-		}			
+	cout << endl << endl << "MESCOLAMENTO CARTE CASUALE UTILIZZANDO LA CLASSE CARTA " << endl << endl;	
+	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++)			
+		cout << *it << endl;				
 	return 0;
 }
 
