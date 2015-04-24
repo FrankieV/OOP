@@ -13,6 +13,7 @@ Carta::Carta()
 	numeroCarta = CountCarte;
 	setValore(Count);
 	setSeme(CountCarte);
+	mescolata = false;
 }
 
 void Carta::setValore( int c )
@@ -44,6 +45,11 @@ void Carta::setSeme( int c )
 		}
 }
 
+void Carta::setMescolata() 
+{
+	mescolata = true;
+}
+
 int Carta::getValore() const
 {
 	return Valore;
@@ -67,6 +73,11 @@ int Carta::getCountCarte() const
 int Carta::getNumeroCarta() const
 {
 	return numeroCarta;
+}
+
+bool Carta::getMescolata() const
+{
+	return mescolata;
 }
 
 ostream &operator << ( ostream& o, const Carta& c)

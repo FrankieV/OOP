@@ -12,10 +12,13 @@ class Carta
 		Carta();
 		void setValore( int );
 		void setSeme( int );
+		void setMescolata();
 		int getValore() const;
 		const string& getSeme() const;
 		int getCount() const;
 		int getCountCarte() const;
+		int getNumeroCarta() const;
+		bool getMescolata() const;
 		const Carta& operator=(const Carta& c);
 	private:
 		int Valore;
@@ -23,6 +26,7 @@ class Carta
 		int numeroCarta;
 		static int Count;
 		static int CountCarte;
+		bool mescolata;
 };
 
 #endif
