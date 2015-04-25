@@ -28,13 +28,13 @@ void Mescola( list<Carta> &l)
 		{
 			it1 = l.begin();
 			it2 = l.begin();			
-			countCarta1 = rand()%40;
+			countCarta1 = rand()%52;
 			for( int i = 0; i < countCarta1; i++)
 				it1++;
 			(*it1).setMescolata();
-			countCarta2 = rand()%40;
+			countCarta2 = rand()%52;
 			while( countCarta1 == countCarta2)
-				countCarta2 = rand()%40;
+				countCarta2 = rand()%52;
 			for( int i = 0; i < countCarta2; i++)
 				it2++;
 			(*it2).setMescolata();
@@ -48,7 +48,7 @@ void Mescola( list<Carta> &l)
 int main()
 {
 	list<Carta> l;
-	for( int i = 1; i < 40; i++ )
+	for( int i = 0; i < 52; i++ )
 		{
 			Carta carta;		
 			l.push_back(carta); 
