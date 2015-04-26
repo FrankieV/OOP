@@ -42,6 +42,7 @@ void Mescola( list<Carta> &l)
 			*it1 = *it2;
 			*it2 = tmp;		
 		}
+	//cout << countMescolate;
 }
 
 int main()

@@ -14,10 +14,7 @@ Carta::Carta()
 	numeroCarta = CountCarte;
 	setValore(Count);
 	setSeme(CountCarte);
-	if( CountCarte >= 1 && CountCarte <= 40 )
-		mescolata = false;
-	else
-		mescolata = true;
+	mescolata = false;
 }
 
 void Carta::setValore( int c )
