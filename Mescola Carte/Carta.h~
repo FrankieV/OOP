@@ -1,5 +1,7 @@
 //Definizione della classe Carta
 //La definizione delle funzioni membro è nel file Carta.cpp
+#include <iostream>
+using namespace std;
 #include <string>
 #ifndef CARTA_H
 #define CARTA_H

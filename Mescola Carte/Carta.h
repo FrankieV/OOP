@@ -1,5 +1,7 @@
 //Definizione della classe Carta
 //La definizione delle funzioni membro è nel file Carta.cpp
+#include <iostream>
+using namespace std;
 #include <string>
 #ifndef CARTA_H
 #define CARTA_H
@@ -11,8 +13,8 @@ class Carta
 	public:
 		Carta();
 		void setValore( int );
-		void setSeme( int );
-		void setMescolata();
+		void setSeme( int );	
+		void setMescolata ();
 		int getValore() const;
 		const string& getSeme() const;
 		int getCount() const;
