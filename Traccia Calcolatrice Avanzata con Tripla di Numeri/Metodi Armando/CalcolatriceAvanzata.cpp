@@ -134,14 +134,14 @@ int CalcolatriceAvanzata::metodo3()
 						{
 							if( it1 -> getNum1() == it2 -> getNum1() && it1 -> getNum2() == it2 -> getNum2())
 								{
-									Doppia = true;									
+								    Doppia=true;									
 									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								}						
 						}
 				}
 		}
-	if( Doppia = false)
+	if( Doppia == false)
 		return -1;
 	return SommaPrimiDueNumeri;
 }
