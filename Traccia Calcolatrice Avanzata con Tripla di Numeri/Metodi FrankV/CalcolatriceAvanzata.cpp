@@ -46,7 +46,14 @@ for(list<TriplaNumert>::iterator it = numeri.begin(); it != numeri.end(); it++)
 return num bilanciate;
 }
 
-
+/*
+Restituire il num1 della terza tripla della lista ordtnata nel seguente modo:
+-Prima tutte le triple con il valore piu' alto di num1.
+-A parita' di valore del num1, le triple con il valore piu' alto di num2.
+-A parita' di valore del num2, le triple con il valore piu' alto di num3.
+Se la lista ha meno di 3 elementi restituire -1.
+ATTENZIONE: NON MODIFICARE la lista di numeri ma creare una copia temporanea.
+*/
 
 int CalcolatriceAvanzata::metodo2()
 {
