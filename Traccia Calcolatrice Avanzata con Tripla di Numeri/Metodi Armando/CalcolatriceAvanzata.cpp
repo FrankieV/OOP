@@ -136,7 +136,7 @@ int CalcolatriceAvanzata::metodo3()
 								{
 									if( Doppia == false)
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
-								    Doppia=true;									
+								    Doppia = true;									
 									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								}						
