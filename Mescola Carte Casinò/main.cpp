@@ -7,9 +7,9 @@ using namespace std;
 
 bool MazzoMescolato( list<Carta> &l)
 {
-	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++)
+	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++ )
 		{
-			if( it -> getMescolata() == false)
+			if( it -> getMescolata() == false )
 				return false;	
 		}
 	return true;			
@@ -29,12 +29,12 @@ void Mescola( list<Carta> &l)
 			it1 = l.begin();
 			it2 = l.begin();			
 			countCarta1 = rand()%52;
-			for( int i = 0; i < countCarta1; i++)
+			for( int i = 0; i < countCarta1; i++ )
 				it1++;
 			countCarta2 = rand()%52;
-			while( countCarta1 == countCarta2)
+			while( countCarta1 == countCarta2 )
 				countCarta2 = rand()%52;
-			for( int i = 0; i < countCarta2; i++)
+			for( int i = 0; i < countCarta2; i++ )
 				it2++;
 			it1 -> setMescolata();
 			it2 -> setMescolata();
@@ -54,7 +54,7 @@ int main()
 		}	
 	Mescola( l );	
 	cout << endl << endl << "::MESCOLAMENTO CARTE CASUALE:: " << endl << endl;	
-	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++)			
+	for( list<Carta>::iterator it = l.begin(); it != l.end(); it++ )			
 		cout << *it << endl;				
 	return 0;
 }
