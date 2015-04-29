@@ -1,3 +1,7 @@
+#include <iostream>
+#include "CalcolatriceAvanzata.h"
+#include <list>
+using namespace std;
 
 int CalcolatriceAvanzata::metodo1()
 {
@@ -5,13 +9,13 @@ int CalcolatriceAvanzata::metodo1()
 	if( numeri.empty())
 		return -1; 
 	int count = 0; 
-	boot primonumero = true;
-	boot secondonumero = true;
-	for( list<TriplaNumeri>::iterator it = numeri.begin(); it != numerinend(); it++ )
+	bool primonumero = true;
+	bool secondonumero = true;
+	for( list<TriplaNumeri>::iterator it = numeri.begin(); it != numeri.end(); it++ )
 		{
 			if( it -> getNum1() > 1)
 				{
-					for( int i = 0; i < it -> getNum1(); i++)
+					for( int i = 2; i < it -> getNum1(); i++)
 						{	
 							if(( it -> getNum1() % i) == 0 )
 								primonumero = false;
@@ -22,16 +26,16 @@ int CalcolatriceAvanzata::metodo1()
 			if( it -> getNum2() > 1)
 				{
 					for( int i = 2; i < it -> getNum2(); i ++)
-                        {						
-                            if((it -> getNum2() % i) == 0) 
-							    secondonumero = false;
-                        }				
-                }
+						{					
+							if((it -> getNum2() % i) == 0) 
+								secondonumero = false;
+						}				
+				}
 			else
 				secondonumero = false;
 			if( primonumero == true && secondonumero == false)
 				count++;
-			if( primonumero == false &I?, secondonumero == true)
+			if( primonumero == false && secondonumero == true)
 				count++;
 			primonumero = true; 
 			secondonumero = true;
@@ -41,7 +45,7 @@ int CalcolatriceAvanzata::metodo1()
 
 /*
 
-Restituire il num1 della terza tripla della lista ordtnata nel seguente modo:
+Restituire il num1 della terza tripla della lista ordinata nel seguente modo:
 
 -Prima tutte le triple con il valore piu' alto di num1.
 -A parita' di valore del num1, le triple con il valore piu' alto di num2.
@@ -61,7 +65,7 @@ int CalcolatriceAvanzata::metodo2()
 	int count = 1;
 	TriplaNumeri Tmp;
 	list<TriplaNumeri> temporanea = numeri;
-	for( list<TriplaNumeri>::iterator it1 = temporanea.begin(); it1 != tenporanea.end(); it1++)
+	for( list<TriplaNumeri>::iterator it1 = temporanea.begin(); it1 != temporanea.end(); it1++)
 		{
 			for( list<TriplaNumeri>::iterator it2 = it1; it2 != temporanea.end(); it2++) 
 				{
@@ -70,22 +74,22 @@ int CalcolatriceAvanzata::metodo2()
 							Tmp = *it1;
 							*it1 = *it2;
 							*it2 = Tmp;
+						}
 					else
 						{
-							if( it2 -› getNum1() == it1 > getNum1() && it2 -> getNum2() > it1 -> getNum1())
+							if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() > it1 -> getNum1())
 								{
 									Tmp = *it1;
-									*tt1 = *it2;
+									*it1 = *it2;
 									*it2 = Tmp;
 								}
 							else
 								{
-									if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() == it1 -> getNum2()) 
-										&& it2 -> getNum3() > it1 -> getNum3())
+									if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() == it1 -> getNum2() && it2 -> getNum3() > it1 -> getNum3())
 										{
 											Tmp = *it1;
 											*it1 = *it2;
-											*it2 = Tmp:
+											*it2 = Tmp;
 										}
 								}
 						}
@@ -108,7 +112,7 @@ Restituire il massimo della somma tra num1 e num2 degli elementi in LD.
 Esempio:
 (1,2,4) (1,2,6) (3,4,7) (3,4,7) (3,4,8) (5,6,2)
 Le triple duplicate sono (1,2,_) e (3,4,_).
-La somma di num1 e num2 della prima trtpla e' pari a 3. 
+La somma di num1 e num2 della prima tripla e' pari a 3. 
 La somma di num1 e num2 della seconda tripla a 7. 
 Quindi il metodo deve restituire 7.
 
@@ -117,10 +121,9 @@ Se la lista e' vuota o non ha dupticati restituire -1.
 */
 int CalcolatriceAvanzata::metodo3()
 { 
-	
 	/* IMPLEMENTARE QUESTO METODO */
-	int SommaPrimiDueNumeri = 0;
 	bool Doppia = false;
+	int SommaPrimiDueNumeri;
 	if( numeri.empty())	
 		return -1;
 	for( list<TriplaNumeri>::iterator it1 = numeri.begin(); it1 != numeri.end(); it1++ )
@@ -129,16 +132,18 @@ int CalcolatriceAvanzata::metodo3()
 				{
 					if( it1 != it2)
 						{
-							if( it1 -> getNum1() == it2 -> getNum1() && it1 -> getNum2 == it2 -> getNum2)
+							if( it1 -> getNum1() == it2 -> getNum1() && it1 -> getNum2() == it2 -> getNum2())
 								{
-									Doppia = true;									
-									if(( it1 -> getNum1() + it -> getNum2()) > SommaPrimiDueNumeri )
-										SommaPrimiDueNumeri = it1 -> getNum1() + it2 -> getNum2()
+									if( Doppia == false)
+										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
+								    Doppia=true;									
+									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
+										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								}						
 						}
 				}
 		}
-	if( Doppia = false)
+	if( Doppia == false)
 		return -1;
 	return SommaPrimiDueNumeri;
 }

@@ -112,7 +112,7 @@ Restituire il massimo della somma tra num1 e num2 degli elementi in LD.
 Esempio:
 (1,2,4) (1,2,6) (3,4,7) (3,4,7) (3,4,8) (5,6,2)
 Le triple duplicate sono (1,2,_) e (3,4,_).
-La somma di num1 e num2 della prima trtpla e' pari a 3. 
+La somma di num1 e num2 della prima tripla e' pari a 3. 
 La somma di num1 e num2 della seconda tripla a 7. 
 Quindi il metodo deve restituire 7.
 
@@ -122,8 +122,8 @@ Se la lista e' vuota o non ha dupticati restituire -1.
 int CalcolatriceAvanzata::metodo3()
 { 
 	/* IMPLEMENTARE QUESTO METODO */
-	int SommaPrimiDueNumeri = 0;
 	bool Doppia = false;
+	int SommaPrimiDueNumeri;
 	if( numeri.empty())	
 		return -1;
 	for( list<TriplaNumeri>::iterator it1 = numeri.begin(); it1 != numeri.end(); it1++ )
@@ -134,6 +134,8 @@ int CalcolatriceAvanzata::metodo3()
 						{
 							if( it1 -> getNum1() == it2 -> getNum1() && it1 -> getNum2() == it2 -> getNum2())
 								{
+									if( Doppia == false)
+										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								    Doppia=true;									
 									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
