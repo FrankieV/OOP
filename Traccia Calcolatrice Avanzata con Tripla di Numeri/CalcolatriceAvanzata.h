@@ -1,5 +1,5 @@
-#ifndef CalcolatriceAvanzata_H_
-#define CalcolatriceAvanzata_H_
+#ifndef CalcolatriceAvanzata_H
+#define CalcolatriceAvanzata_H
 #include <iostream>
 #include <cstdlib>        
 #include <list>
@@ -10,10 +10,10 @@ using namespace std;
 
 /*
 
-Questa classe contiene una lista di triple di numeri. °gni. tripla e' caratterizzata dalle seguenti informazioni:
-- num1: it prima numero della tripla (int);
-- num2: it secondo numero della tripla (int);
-- num3: it terzo numero della tripla (int).
+Questa classe contiene una lista di triple di numeri ogni tripla e' caratterizzata dalle seguenti informazioni:
+- num1: il primo numero della tripla (int);
+- num2: il secondo numero della tripla (int);
+- num3: il terzo numero della tripla (int).
 
 Implementare nel file CalcolatriceAvanzata.cpp i metodi della classe CalcolatriceAvanzata.
  
