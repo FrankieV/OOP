@@ -1,7 +1,10 @@
+#ifndef CalcolatriceAvanzata_H_
+#define CalcolatriceAvanzata_H_
+#include <iostream>
 #include <cstdlib>        
-#include "TriplaNumeri.h""
 #include <list>
 #include <vector>
+#include "TriplaNumeri.h"
 
 using namespace std;
 
@@ -38,7 +41,7 @@ class CalcolatriceAvanzata      // questa riga e' corretta NON MODIFICARE
 	
 		inline bool aggiungi(TriplaNumeri c) { numeri.push_back(c); return true; }
 	 
-		inline list<TriplaNumeri,& getContent() { return numeri; }
+		inline list<TriplaNumeri>& getContent() { return numeri; }
 };
-#endif;                                                 
+#endif                                                 
 

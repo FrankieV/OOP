@@ -28,7 +28,7 @@ int CalcolatriceAvanzata::metodo1()
 					for( int i = 2; i < it -> getNum2(); i ++)
                         {						
                             if((it -> getNum2() % i) == 0) 
-							    						secondonumero = false;
+							    secondonumero = false;
                         }				
                 }
 			else
