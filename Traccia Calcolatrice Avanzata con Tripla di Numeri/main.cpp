@@ -31,5 +31,13 @@ int main()
 	cout << "Sia LD la lista di triple duplicate. Una tripla e considerata duplicata se i primi due nuneri sono uguali. "; 
 	cout << "Restituire il massimo della somma tra num1 e num2 degli elementi in LD." << endl << endl;
 	cout << "In questo caso è :" << CA.metodo3() << endl << endl;
+
+	
+	cout << endl << endl << "                           ::::Quarto Metodo:::" << endl << endl;
+	cout << "Sia P il primo nunero a 4 ctfre della lista (considerando solo il num3). " << endl;
+	cout <<	"Sia PMAX il numero max che e' possibile comporre usando tutte le cifre di P. " << endl;
+	cout << "Sia PMIN il nunero min che e' posstbtte comporre usando tutte le cifre di P. " << endl;
+	cout << "Restituire PMAX-PMIN." << endl << endl;
+	cout << "In questo caso è :" << CA.metodo4() << endl << endl;
 	return 0;
 }
