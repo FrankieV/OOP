@@ -77,7 +77,7 @@ int CalcolatriceAvanzata::metodo2()
 						}
 					else
 						{
-							if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() > it1 -> getNum1())
+							if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() > it1 -> getNum2())
 								{
 									Tmp = *it1;
 									*it1 = *it2;
@@ -98,10 +98,10 @@ int CalcolatriceAvanzata::metodo2()
 
 	for( list<TriplaNumeri>::iterator it = temporanea.begin(); it != temporanea.end(); it++)
   		{
-			if( count == 3 ) 
-			      return it -> getNum1(); 
-    			count++;
-		}
+        if( count == 3 ) 
+			    return it -> getNum1(); 
+    		count++;
+		  }
 }
 
 /*
@@ -136,7 +136,7 @@ int CalcolatriceAvanzata::metodo3()
 								{
 									if( Doppia == false)
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
-								    Doppia=true;									
+								    Doppia = true;									
 									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								}						
@@ -151,10 +151,10 @@ int CalcolatriceAvanzata::metodo3()
 
 /*
 
-Sta P il primo nunero a 4 ctfre della lista (considerando solo il num3).
+Sa P il primo numero a 4 cifre della lista (considerando solo il num3).
 
 Sia PMAX il numero max che e' possibile comporre usando tutte le cifre di P. 
-Sia PMIN il nunero min che e' posstbtte comporre usando tutte le cifre di P.
+Sia PMIN il nunero min che e' possibile comporre usando tutte le cifre di P.
 
 Restituire PMAX-PMIN.
 
@@ -166,7 +166,83 @@ Se la lista e' vuota o se non ha numeri a 4 cifre restituire -1.
 
 int CalcolatriceAvanzata::metodo4()
 {
-	/* IMPLEMENTARE QUESTO METODO */
-	return -1;
+	if( numeri.empty())
+		return -1;
+	bool presente = false;
+	int QuattroCifre;
+	int Divisore = 1000;
+	int tmp;
+	int Massimo = 0;	
+	int Minimo = 0;
+	int QC[4];
+	for( list<TriplaNumeri>::iterator it = numeri.begin(); it != numeri.end(); it++ )
+		{
+			if( it -> getNum3() >= 1000 && it -> getNum3() <= 9999 )
+				{
+					presente = true;
+					QuattroCifre = it -> getNum3();
+					for( int i = 0; i < 4; i++ )
+						{
+							QC[i] = QuattroCifre / Divisore;
+							Divisore = Divisore / 10;
+							QuattroCifre = QuattroCifre - QC[i] * ( Divisore * 10);
+						}	
+					break;
+				}
+			if( it -> getNum3() >= -9999 && it -> getNum3() <= -1000 )
+				{
+					presente = true;
+					QuattroCifre = -( it -> getNum3());
+					for( int i = 0; i < 4; i++ )
+						{
+							QC[i] = QuattroCifre / Divisore;
+							Divisore = Divisore / 10;
+							QuattroCifre = QuattroCifre - QC[i] * ( Divisore * 10);
+						}	
+					break;
+				}				
+		}
+	if( presente )
+		{
+			for( int i = 0; i < 4; i++)
+				{
+					for( int j = i; j < 4; j++)
+						{
+							if( QC[j] > QC[i] )
+								{
+									tmp = QC[j];
+									QC[j] = QC[i];
+									QC[i] = tmp;
+								}			
+						}						
+				}
+			Divisore = 1000;
+			for( int i = 0; i < 4; i++)
+				{
+					Massimo = QC[i] * Divisore + Massimo;
+					Divisore = Divisore / 10; 
+				}
+			for( int i = 0; i < 4; i++)
+				{
+					for( int j = i; j < 4; j++)
+						{
+							if( QC[j] < QC[i] )
+								{
+									tmp = QC[j];
+									QC[j] = QC[i];
+									QC[i] = tmp;
+								}			
+						}						
+				}
+			Divisore = 1000;
+			for( int i = 0; i < 4; i++)
+				{
+					Minimo = QC[i] * Divisore + Minimo;
+					Divisore = Divisore / 10; 
+				}
+			return Massimo - Minimo;	
+		}
+	else
+		return -1;
 }
 

@@ -77,7 +77,7 @@ int CalcolatriceAvanzata::metodo2()
 						}
 					else
 						{
-							if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() > it1 -> getNum1())
+							if( it2 -> getNum1() == it1 -> getNum1() && it2 -> getNum2() > it1 -> getNum2())
 								{
 									Tmp = *it1;
 									*it1 = *it2;
@@ -98,10 +98,10 @@ int CalcolatriceAvanzata::metodo2()
 
 	for( list<TriplaNumeri>::iterator it = temporanea.begin(); it != temporanea.end(); it++)
   		{
-			if( count == 3 ) 
-			      return it -> getNum1(); 
-    			count++;
-		}
+        if( count == 3 ) 
+			    return it -> getNum1(); 
+    		count++;
+		  }
 }
 
 /*
@@ -136,7 +136,7 @@ int CalcolatriceAvanzata::metodo3()
 								{
 									if( Doppia == false)
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
-								    Doppia = true;									
+								  Doppia = true;									
 									if(( it1 -> getNum1() + it1 -> getNum2()) > SommaPrimiDueNumeri )
 										SommaPrimiDueNumeri = it1 -> getNum1() + it1 -> getNum2();
 								}						
