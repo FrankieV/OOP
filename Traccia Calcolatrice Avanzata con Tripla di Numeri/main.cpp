@@ -34,9 +34,9 @@ int main()
 
 	
 	cout << endl << endl << "                           ::::Quarto Metodo:::" << endl << endl;
-	cout << "Sia P il primo nunero a 4 ctfre della lista (considerando solo il num3). " << endl;
+	cout << "Sia P il primo numero a 4 cifre della lista (considerando solo il num3). " << endl;
 	cout <<	"Sia PMAX il numero max che e' possibile comporre usando tutte le cifre di P. " << endl;
-	cout << "Sia PMIN il nunero min che e' posstbtte comporre usando tutte le cifre di P. " << endl;
+	cout << "Sia PMIN il numero min che e' possibile comporre usando tutte le cifre di P. " << endl;
 	cout << "Restituire PMAX-PMIN." << endl << endl;
 	cout << "In questo caso è :" << CA.metodo4() << endl << endl;
 	return 0;
