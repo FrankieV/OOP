@@ -20,7 +20,7 @@ int Mondiale::metodo1()
 	
 	for(list<Partita>::iterator it = partite.begin(); it !=partite.end(); it++)
 		{
-			somma_gol = somma_gol + it -> getGolSquadra1 + it -> getGolSquadra2();
+			somma_gol = somma_gol + it -> getGolSquadra1() + it -> getGolSquadra2();
 			cont_partite++;
 		}
 
@@ -29,21 +29,22 @@ int Mondiale::metodo1()
 	bool prima_volta = true;
 	int min;
 	
-	for(list<Partita>::iterator it = partite.begin(); it != partite.end()); it++)
+	for( list<Partita>::iterator it = partite.begin(); it != partite.end(); it++)
 		{
-			if( it -> getGolSquadra1 + it -> getGolSquadra2() >= M)
+			if( it -> getGolSquadra1() + it -> getGolSquadra2() >= M)
 				{		
 					if(prima_volta)
 						{
-							min = it -> getGolSquadra1 + it -> getGolSquadra2();
+							min = it -> getGolSquadra1() + it -> getGolSquadra2();
 							prima_volta = false;
 						}
-					if(it -> getGolSquadra1 + it -> getGolSquadra2() < min )
-						min = it -> getGolSquadra1 +it -> getGolSquadra2();
+					if(it -> getGolSquadra1() + it -> getGolSquadra2() < min )
+						min = it -> getGolSquadra1() +it -> getGolSquadra2();
 				}
 		}
+	return min;
 }
-return min;
+
 
 /*
 Determinare il numero di arbitri che non hanno mai arbitrato piu' di una partita della stessa squadra. 

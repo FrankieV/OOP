@@ -1,5 +1,5 @@
 #ifndef Partita_H
-#ifndef Partita_H
+#define Partita_H
 
 #include <string>
 #include <iostream>
@@ -11,7 +11,7 @@ class Partita
 	
 		string squadra1;
 		string squadra2;
-		int golsquadra1;
+		int golSquadra1;
 		int golSquadra2;
 		string arbitro;
 
@@ -34,8 +34,7 @@ class Partita
         string getArbitro() const { return arbitro; }
 	void setArbitro(string v) { arbitro = v; }
 
-        bool operator==(const Partita& right) const { return squadra1 == right.squadra1 && squadra2 == right.squadra2 && golSquadra1 
-right.golSquadra1 && golSquadra2 == right.golSquadra2 && arbitro == right.arbitro; }
+        bool operator==(const Partita& right) const { return squadra1 == right.squadra1 && squadra2 == right.squadra2 && golSquadra1 == right.golSquadra1 && golSquadra2 == right.golSquadra2 && arbitro == right.arbitro; }
  
         friend ostream& operator<<(ostream& out, const Partita& x) { return out << '[' << x.squadra1 << ", " << x.squadra2 << ", " << x.golSquadra1 << ", " << x.golSquadra2 << ", " << x.arbitro << ']'; }
 };

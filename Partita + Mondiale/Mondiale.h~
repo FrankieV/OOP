@@ -39,7 +39,7 @@ class Mondiale //questa riga è corretta NON MODIFICARE
 		int metodo2();
 		
 		// DESCRIZIONE NEL FILE .cpp 
-		int metodo3();
+		int metodo3().
 		
 		// DESCRIZIONE NEL FILE .cpp
 		int metodo4();

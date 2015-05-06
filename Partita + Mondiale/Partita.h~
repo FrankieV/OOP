@@ -1,5 +1,5 @@
 #ifndef Partita_H
-#ifndef Partita_H
+#define Partita_H
 
 #include <string>
 #include <iostream>
@@ -11,7 +11,7 @@ class Partita
 	
 		string squadra1;
 		string squadra2;
-		int golsquadra1;
+		int golSquadra1;
 		int golSquadra2;
 		string arbitro;
 
@@ -20,7 +20,7 @@ class Partita
 		Partita( string _squadra1 = " ", string _squadra2 = " ", int _golSquadra1 = 0, int _golSquadra2 = 0, string _arbitro = " ") : squadra1(_squadra1), squadra2(_squadra2), golSquadra1(_golSquadra1), golSquadra2(_golSquadra2), arbitro(_arbitro) {}
 
         string getSquadra1() const { return squadra1; }
-	    void setSquadra1(string v) { squadra1 = v; }
+	void setSquadra1(string v) { squadra1 = v; }
 	
         string getSquadra2() const { return squadra2; }	
         void setSquadra2(string v) { squadra2 = v; }
