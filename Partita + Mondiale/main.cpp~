@@ -11,7 +11,8 @@ int main()
 	string Refery;
 	Mondiale MO;
 	Partita PA;
-	for( int i = 0; i < 5; i++)
+	cout << endl << endl;
+	for( int i = 0; i < 3; i++)
 		{
 			cout << "Inserisci il nome della prima squadra: ";
 			cin >> squadA;
@@ -36,25 +37,29 @@ int main()
 	cout << "Restituire i gol della partita P. " << endl << endl;
 	cout << "Se non sono presenti partite, restituire -1." << endl << endl;
 	cout << "In questo caso è :" << MO.metodo1() << endl << endl;
-//	cout << endl << endl << "                           ::::Secondo Metodo:::" << endl << endl;
-//	cout << "Restituisce il primo numero della terza tripla della lista ordinata seguendo questi criteri : " << endl << endl;
-//	cout << "-Prima tutte le triple con il valore piu' alto di num1." << endl << endl;
-//	cout <<	"-A parita' di valore del num1, le triple con il valore piu' alto di num2." << endl << endl;
-//	cout << "-A parita' di valore del num2, le triple con il valore piu' alto di num3." << endl << endl;
-//	cout << "In questo caso è :" << CA.metodo2() << endl << endl;
+
+	cout << endl << endl << "                           ::::Secondo Metodo:::" << endl << endl;
+	cout << "Determinare il numero di arbitri che non hanno mai arbitrato piu' di una partita della stessa squadra. " << endl << endl;
+	cout << "Se non sono presenti partite, restituire -1" << endl << endl;
+	cout << "In questo caso è :" << CA.metodo2() << endl << endl;
 
 
-//	cout << endl << endl << "                           ::::Terzo Metodo:::" << endl << endl;
-//	cout << "Sia LD la lista di triple duplicate. Una tripla e considerata duplicata se i primi due nuneri sono uguali. "; 
-//	cout << "Restituire il massimo della somma tra num1 e num2 degli elementi in LD." << endl << endl;
-//	cout << "In questo caso è :" << CA.metodo3() << endl << endl;
+	cout << endl << endl << "                           ::::Terzo Metodo:::" << endl << endl;
+	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza"; 
+	cout << "Se non sono presentt partite, restituire -1." << endl << endl;
+	cout << "In questo caso è :" << CA.metodo3() << endl << endl;
 
-//	
-//	cout << endl << endl << "                           ::::Quarto Metodo:::" << endl << endl;
-//	cout << "Sia P il primo numero a 4 cifre della lista (considerando solo il num3). " << endl;
-//	cout <<	"Sia PMAX il numero max che e' possibile comporre usando tutte le cifre di P. " << endl;
-//	cout << "Sia PMIN il numero min che e' possibile comporre usando tutte le cifre di P. " << endl;
-//	cout << "Restituire PMAX-PMIN." << endl << endl;
-//	cout << "In questo caso è :" << CA.metodo4() << endl << endl;
+	
+	cout << endl << endl << "                           ::::Quarto Metodo:::" << endl << endl;
+	cout << "Data la seguente definizone: " << endl;
+	cout <<	"Una squadra S1 domina una squadra S2 se:" << endl;
+	cout << "- S1 vince una partita in trasferta contro S2 con almeno due gol di scarto, oppure " << endl;
+	cout << "- S1 domina S3 ed S3 domina S2." << endl << endl; 
+	cout << "Il metodo deve restituire tl numero di squadre dominate dalla squadra1 della prima partita della lista." << endl << endl;
+	cout << "Note:" << endl << endl;
+	cout << "	-Una squadra S domina sempre se stessa." << endl << endl;
+	cout << "Se non sono presentt partite, restituire -1." << endl << endl;
+	cout << "In questo caso è :" << CA.metodo4() << endl << endl;
+
 	return 0;
 }
