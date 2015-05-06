@@ -19,11 +19,11 @@ class Partita
 	
 		Partita( string _squadra1 = " ", string _squadra2 = " ", int _golSquadra1 = 0, int _golSquadra2 = 0, string _arbitro = " ") : squadra1(_squadra1), squadra2(_squadra2), golSquadra1(_golSquadra1), golSquadra2(_golSquadra2), arbitro(_arbitro) {}
 
-        string getSquadra1() const { return squadra1; }
+        string getsquadra1() const { return squadra1; }
 	    void setSquadra1(string v) { squadra1 = v; }
 	
-        string getSquadra2() const { return squadra2; }	
-        void setSquadra2(string v) { squadra2 = v; }
+        string getsquadra2() const { return squadra2; }	
+        void setsquadra2(string v) { squadra2 = v; }
 
         int getGolSquadra1() const { return golSquadra1; }	
         void setGolSquadra1(int v) { golSquadra1 = v; }
