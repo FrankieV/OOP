@@ -41,13 +41,13 @@ int main()
 	cout << endl << endl << "                           ::::Secondo Metodo:::" << endl << endl;
 	cout << "Determinare il numero di arbitri che non hanno mai arbitrato piu' di una partita della stessa squadra. " << endl << endl;
 	cout << "Se non sono presenti partite, restituire -1" << endl << endl;
-	cout << "In questo caso è :" << CA.metodo2() << endl << endl;
+	cout << "In questo caso è :" << MO.metodo2() << endl << endl;
 
 
 	cout << endl << endl << "                           ::::Terzo Metodo:::" << endl << endl;
 	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza"; 
 	cout << "Se non sono presentt partite, restituire -1." << endl << endl;
-	cout << "In questo caso è :" << CA.metodo3() << endl << endl;
+	cout << "In questo caso è :" << MO.metodo3() << endl << endl;
 
 	
 	cout << endl << endl << "                           ::::Quarto Metodo:::" << endl << endl;
@@ -59,7 +59,7 @@ int main()
 	cout << "Note:" << endl << endl;
 	cout << "	-Una squadra S domina sempre se stessa." << endl << endl;
 	cout << "Se non sono presentt partite, restituire -1." << endl << endl;
-	cout << "In questo caso è :" << CA.metodo4() << endl << endl;
+	cout << "In questo caso è :" << MO.metodo4() << endl << endl;
 
 	return 0;
 }
