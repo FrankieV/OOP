@@ -30,7 +30,7 @@ int main()
 			cin >> Refery;
 			PA.setArbitro( Refery );
 			MO.aggiungi( PA );
-			cout << endl << endl << endl;
+			cout << endl << endl;
 		}	
 	cout << endl << endl << "                           ::::Primo Metodo:::" << endl << endl;
 	cout << "Sia M la media dei gol segnati in tutte le partite (utilizzare la divistone intera)." << endl << endl;

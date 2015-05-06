@@ -34,7 +34,7 @@ int main()
 		}	
 	cout << endl << endl << "                           ::::Primo Metodo:::" << endl << endl;
 	cout << "Sia M la media dei gol segnati in tutte le partite (utilizzare la divistone intera)." << endl << endl;
-	cout << "Sia P to partita con meno gol segnati tra le partite con un numero di gol segnati >= M.( nel caso in cui più partite soddisfino la condizione prendere la prima in ordine di appartztone nella lista)" << endl << endl;
+	cout << "Sia P to partita con meno gol segnati tra le partite con un numero di gol segnati >= M.( nel caso in cui più partite soddisfino la condizione prendere la prima in ordine di apparizione nella lista)" << endl << endl;
 	cout << "Restituire i gol della partita P. " << endl << endl;
 	cout << "Se non sono presenti partite, restituire -1." << endl << endl;
 	cout << "In questo caso è :" << MO.metodo1() << endl << endl;
