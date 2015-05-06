@@ -3,7 +3,7 @@
 
 /*
 sia M la media dei gol segnati in tutte le partite (utilizzare la divistone intera).
-Sia P to partita con meno gol segnati tra le partite con un numero di gol segnati >= M.( nel caso in cui più partite soddisfino la condtztone prendere la prima in ordine di appartztone nella lista)   
+Sia P to partita con meno gol segnati tra le partite con un numero di gol segnati >= M.( nel caso in cui più partite soddisfino la condizione prendere la prima in ordine di apparizione nella lista)   
 Restituire i gol della partita P.
 
 Se non sono presenti partite, restituire -1.
@@ -58,7 +58,7 @@ int Mondiale::metodo2()
 
 /*
 Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di                                             differenza                                                         
-Se non sono presentt partite, restituire -1.
+Se non sono presenti partite, restituire -1.
 
 */
 int Mondiale::metodo3()
