@@ -54,6 +54,26 @@ Se non sono presenti partite, restituire -1.
 int Mondiale::metodo2()
 {
 	/* IMPLEMENTARE QUESTO METODO*/
+	bool stessa_squadra = false;
+	list<string> Arbitri;
+	for( list<Partita>::iterator it1 = partite.begin(); it1 != partite.end(); it1++ )
+		{
+			for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
+				{
+					if( it1 != it2 )
+						{
+							if( ( it1-> getArbitro() == it2 -> getArbitro() ) && ( it1 -> getSquadra1() == it2 -> getSquadra1() || it1 -> getSquadra1() == it2 -> getSquadra2() || it1 -> getSquadra2() == it2 -> getSquadra1() || it1 -> getSquadra2() == it2 -> getSquadra2()))
+								stessa_squadra = true;						
+						}
+				} 
+			if( stessa_squadra == false )
+				Arbitri.push_back( it1 -> getArbitro());
+			stessa_squadra = false;
+		}
+
+	Arbitri.sort();
+	Arbitri.unique();
+	return Arbitri.size();
 }
 
 /*
