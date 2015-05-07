@@ -46,7 +46,7 @@ int main()
 
 
 	cout << endl << endl << "                           ::::Terzo Metodo:::" << endl << endl;
-	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza"; 
+	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza"; << endl << endl;
 	cout << "Se non sono presenti partite, restituire -1." << endl << endl;
 	cout << "In questo caso è :" << MO.metodo3() << endl << endl;
 
