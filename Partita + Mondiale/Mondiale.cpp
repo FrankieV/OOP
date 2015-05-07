@@ -102,7 +102,7 @@ Una squadra S1 domina una squadra S2 se:
 - S1 vince una partita in trasferta contro S2 con almeno due gol di scarto, oppure
 - S1 domina S3 ed S3 domina S2.
 
-Il metodo deve restituire tl numero di squadre dominate dalla squadra1 della prima partita della lista.
+Il metodo deve restituire il numero di squadre dominate dalla squadra1 della prima partita della lista.
 
 Note:
 	-Una squadra S domina sempre se stessa.
@@ -112,5 +112,48 @@ Nel caso in cui non ci siano partite restituire -1.
 int Mondiale::metodo4()
 {
 	/* IMPLEMENTARE QUESTO METODO*/
+	string squadra;
+	string squadraDominata;
+	list<string> SquadreDominate;
+	bool prima_volta = true;
+	for( list<Partita>::iterator it1 = partite.begin(); it1 != partite.end(); it1++ )
+		{
+			if( prima_volta == true )
+				{
+					squadra = it1 -> getSquadra1();
+					prima_volta = false;
+				}			
+			if( ( it1 -> getSquadra1() == squadra || it1 -> getSquadra1() == squadraDominata) && 
+				( it1 -> getGolSquadra1() - it1 -> 	getGolSquadra2() >= 2 ))
+				{	
+					SquadreDominate.push_back( it1 -> getSquadra2() );
+					squadraDominata = it1 -> getSquadra2();		
+					for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
+						{
+							if(( it1 -> getSquadra2() == it2 -> getSquadra1())&&( it2 -> getSquadra1() != squadra) && 							   	  ( it2 -> getGolSquadra1() - it2 -> getGolSquadra2() >= 2))
+								SquadreDominate.push_back( it2 -> getSquadra1());
+							if(( it1 -> getSquadra2() == it2 -> getSquadra2() )&&( it2 -> getSquadra2() != squadra) && 
+						          ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2)		)
+								SquadreDominate.push_back( it2 -> getSquadra2());						
+						}
+				}
+			if( ( it1 -> getSquadra2() == squadra || it1 -> getSquadra2() == squadraDominata) && 
+				( it1 -> getGolSquadra2() - it1 -> getGolSquadra1() >= 2 ))
+				{	
+					SquadreDominate.push_back( it1 -> getSquadra1() );	
+					squadraDominata = it1 -> getSquadra1();	
+					for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
+						{
+							if(( it1 -> getSquadra1() == it2 -> getSquadra1())&&( it2 -> getSquadra1() != squadra) && 							   	  ( it2 -> getGolSquadra1() - it2 -> getGolSquadra2() >= 2))
+								SquadreDominate.push_back( it2 -> getSquadra1());
+							if(( it1 -> getSquadra1() == it2 -> getSquadra2() )&&( it2 -> getSquadra2() != squadra) && 
+						          ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2)		)
+								SquadreDominate.push_back( it2 -> getSquadra2());						
+						}
+				}
+		}
+	SquadreDominate.sort();
+	SquadreDominate.unique();
+	return SquadreDominate.size() + 1;
 }
 
