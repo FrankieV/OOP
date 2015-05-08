@@ -154,8 +154,7 @@ int Mondiale::metodo4()
 //								SquadreDominate.push_back( it2 -> getSquadra2());						
 //						}
 //				}
-			if( ( it1 -> getSquadra2() == squadra || it1 -> getSquadra2() == squadraDominata) && 
-				( it1 -> getGolSquadra2() - it1 -> getGolSquadra1() >= 2 ))
+			if( ( it1 -> getSquadra2() == squadra || it1 -> getSquadra2() == squadraDominata) && ( it1 -> getGolSquadra2() - it1 -> getGolSquadra1() >= 2 ))
 				{	
 					SquadreDominate.push_back( it1 -> getSquadra1() );	
 					squadraDominata = it1 -> getSquadra1();	
