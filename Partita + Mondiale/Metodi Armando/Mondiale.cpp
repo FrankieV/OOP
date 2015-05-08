@@ -86,16 +86,7 @@ Se non sono presenti partite, restituire -1.
 int Mondiale::metodo3()
 {
 	/* IMPLEMENTARE QUESTO METODO*/
-//	list<string> Arbitri;
-//	for( list<Partita>::iterator it = partite.begin(); it != partite.end(); it++ )
-//		{
-//			if(( it -> getGolSquadra1() - it -> getGolSquadra2() > 2 ) || ( it -> getGolSquadra2() - it -> getGolSquadra1() > 2 ))
-//				Arbitri.push_back( it -> getArbitro() );		
-//		}
-//	Arbitri.sort();
-//	Arbitri.unique();
-//	return Arbitri.size();
-	
+
 	bool Solo = true;
 	list<string> Arbitri;
 	for( list<Partita>::iterator it1 = partite.begin(); it1 != partite.end(); it1++ )
