@@ -101,7 +101,7 @@ int Mondiale::metodo3()
 			for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
 			{
 				if( (it1 -> getArbitro() == it2 -> getArbitro()) && ( it2 -> getGolSquadra1() - it2 -> getGolSquadra2() <= 2 ) && ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() <= 2 ))
-					Solo = false;
+							Solo = false;
 			}
 			if( Solo == true )			
 				Arbitri.push_back( it1 -> getArbitro() );		
@@ -140,18 +140,27 @@ int Mondiale::metodo4()
 					squadra = it1 -> getSquadra1();
 					prima_volta = false;
 				}			
-			
-			if( ( it1 -> getSquadra2() == squadra || it1 -> getSquadra2() == squadraDominata ) && 
-				( it1 -> getGolSquadra2() - it1 -> getGolSquadra1() >= 2 ))
+//			if( ( it1 -> getSquadra1() == squadra || it1 -> getSquadra1() == squadraDominata) && 
+//				( it1 -> getGolSquadra1() - it1 -> 	getGolSquadra2() >= 2 ))
+//				{	
+//					SquadreDominate.push_back( it1 -> getSquadra2() );
+//					squadraDominata = it1 -> getSquadra2();		
+//					for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
+//						{
+//							if(( it1 -> getSquadra2() == it2 -> getSquadra1())&&( it2 -> getSquadra1() != squadra) && 							   	  ( it2 -> getGolSquadra1() - it2 -> getGolSquadra2() >= 2))
+//								SquadreDominate.push_back( it2 -> getSquadra1());
+//							if(( it1 -> getSquadra2() == it2 -> getSquadra2() )&&( it2 -> getSquadra2() != squadra) && 
+//						          ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2)		)
+//								SquadreDominate.push_back( it2 -> getSquadra2());						
+//						}
+//				}
+			if( ( it1 -> getSquadra2() == squadra || it1 -> getSquadra2() == squadraDominata) && ( it1 -> getGolSquadra2() - it1 -> getGolSquadra1() >= 2 ))
 				{	
 					SquadreDominate.push_back( it1 -> getSquadra1() );	
 					squadraDominata = it1 -> getSquadra1();	
 					for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
 						{
-							if(( it1 -> getSquadra1() == it2 -> getSquadra1())&&( it2 -> getSquadra1() != squadra) && 							   	  ( it2 -> getGolSquadra1() - it2 -> getGolSquadra2() >= 2))
-								SquadreDominate.push_back( it2 -> getSquadra1());
-							if(( it1 -> getSquadra1() == it2 -> getSquadra2() )&&( it2 -> getSquadra2() != squadra) && 
-						          ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2)		)
+							if(( it1 -> getSquadra1() == it2 -> getSquadra2())&&( it2 -> getSquadra2() != squadra) &&( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2))
 								SquadreDominate.push_back( it2 -> getSquadra2());						
 						}
 				}

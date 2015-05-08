@@ -12,7 +12,7 @@ int main()
 	Mondiale MO;
 	Partita PA;
 	cout << endl << endl;
-	for( int i = 0; i < 3; i++)
+	for( int i = 0; i < 5; i++)
 		{
 			cout << "Inserisci il nome della prima squadra: ";
 			cin >> squadA;
@@ -31,7 +31,8 @@ int main()
 			PA.setArbitro( Refery );
 			MO.aggiungi( PA );
 			cout << endl << endl;
-		}	
+		}
+	
 	cout << endl << endl << "                           ::::Primo Metodo:::" << endl << endl;
 	cout << "Sia M la media dei gol segnati in tutte le partite (utilizzare la divistone intera)." << endl << endl;
 	cout << "Sia P to partita con meno gol segnati tra le partite con un numero di gol segnati >= M.( nel caso in cui più partite soddisfino la condizione prendere la prima in ordine di apparizione nella lista)" << endl << endl;
@@ -46,7 +47,7 @@ int main()
 
 
 	cout << endl << endl << "                           ::::Terzo Metodo:::" << endl << endl;
-	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza"; << endl << endl;
+	cout << "Restituire il numero di arbitri che hanno arbitrato solo partite finite con piu' di due gol di differenza" << endl << endl;
 	cout << "Se non sono presenti partite, restituire -1." << endl << endl;
 	cout << "In questo caso è :" << MO.metodo3() << endl << endl;
 
