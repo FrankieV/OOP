@@ -68,11 +68,11 @@ int CalcolatriceAvanzata::metodo2()
    list<TriplaNumeri> tmp = numeri; 
    TriplaNumeri temp_num; 
 
-   for(list<TriplaNumeri>::iterator it= tmp.begin(); it != tmp.end(); it++)
+  /* for(list<TriplaNumeri>::iterator it= tmp.begin(); it != tmp.end(); it++)
    { 
       for(list<TriplaNumeri>::iterator it_2 = it; it_2 != tmp.end(); it_2++) 
       {
-	    if(it -> getNum1() < it_2 -> getNum1())
+	   if(it -> getNum1() < it_2 -> getNum1())
         {
 			temp_num = *it;
 			*it = *it_2;
@@ -96,8 +96,11 @@ int CalcolatriceAvanzata::metodo2()
 			}
 		  }
 		}
+	
 	}
-  }
+  }*/
+  
+  tmp.sort();
   
   list<TriplaNumeri>::iterator it = tmp.begin();
   for(int i = 1; i < 3; i++)

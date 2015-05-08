@@ -30,6 +30,8 @@ class TriplaNumeri
 		void setNum3(int v) { num3 = v; }
 
 		bool operator==(const TriplaNumeri& right) const { return num1 == right.num1 && num2 == right.num2 && num3 == right.num3; }
+		bool operator<(const TriplaNumeri& tn) const;
+		{
                                                                                   
 };
 
