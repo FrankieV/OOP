@@ -160,7 +160,7 @@ int Mondiale::metodo4()
 					squadraDominata = it1 -> getSquadra1();	
 					for( list<Partita>::iterator it2 = partite.begin(); it2 != partite.end(); it2++ )
 						{
-							if(( it1 -> getSquadra1() == it2 -> getSquadra2())&&( it2 -> getSquadra2() != squadra) && 							   	  ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2))
+							if(( it1 -> getSquadra1() == it2 -> getSquadra2())&&( it2 -> getSquadra2() != squadra) && ( it2 -> getGolSquadra2() - it2 -> getGolSquadra1() >= 2))
 								SquadreDominate.push_back( it2 -> getSquadra2());						
 						}
 				}
