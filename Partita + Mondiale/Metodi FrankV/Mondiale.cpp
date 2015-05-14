@@ -93,17 +93,35 @@ int Mondiale::metodo3()
 	if(partite.empty())
 	    return -1;
 	
-	int differenza_reti = 0;
-	vector<string> arbitri;
+	list<string> arbitri;
 	for(list<Partita>::iterator it = partite.begin(); it != partite.end(); it++)
 	{
-	  differenza_reti = abs(it -> getGolSquadra1() - it -> getGolSquadra2());
-	  if(differenza_reti > 2 && VerificaArbitro(it -> getArbitro(), arbitri ) == false)
 	  arbitri.push_back(it -> getArbitro());
 	}
 	
+	arbitri.sort();
+	arbitri.unique();
+	
+	
+	for(list<string>::iterator it = arbitri.begin(); it != arbitri.end(); )
+	{
+	
+	list<string>::iterator tmp = it;
+	it++;
+	for(list<Partita>::iterator it_2 = partite.begin(); it_2 != partite.end(); it_2++)
+	{
+	  if(*tmp == it_2 -> getArbitro())
+	  {
+	    if(abs(it_2 -> getGolSquadra1() - it_2 -> getGolSquadra2()) <= 2)
+	    {
+	      arbitri.remove(*tmp);
+	      break;
+	    }
+	  }
+	}
+	}
+	
 	return arbitri.size();
-
 }
 
 /*
@@ -123,6 +141,39 @@ Nel caso in cui non ci siano partite restituire -1.
 int Mondiale::metodo4()
 {
 	/* IMPLEMENTARE QUESTO METODO*/
+	list<string> squadreDominate;
+	string squadra_1 = partite.front().getSquadra1();
+	squadreDominate.push_back(squadra_1);
+	for(list<Partita>::iterator it = partite.begin(); it != partite.end(); it++)
+	{
+	  if(it -> getSquadra2() == squadra_1)
+	  {
+	    if(it -> getGolSquadra2() - it -> getGolSquadra1() >= 2)
+	    {
+	      squadreDominate.push_back(it -> getSquadra1());
+	    }
+	  }
+	}
+	
+	for(list<string>::iterator it = squadreDominate.begin(); it != squadreDominate.end(); it++)
+	{
+	  for(list<Partita>::iterator it_2 = partite.begin(); it_2 != partite.end(); it_2++)
+	  {
+	    if(*it == it_2 -> getSquadra2())
+	    {
+	      if(it_2 -> getGolSquadra2() - it_2 -> getGolSquadra1() >= 2)
+	      {
+	      // controllo su squadre inserite.
+	       squadreDominate.push_back(it_2 -> getSquadra1());
+	      }
+	    }
+	  }
+	 }
+	 
+	 squadreDominate.sort();
+	 squadreDominate.unique();
+	 
+	 return squadreDominate.size();
 }
 
 bool Mondiale::VerificaArbitro(const string & arbitro, const vector<string> &lista_arbitri ) const
