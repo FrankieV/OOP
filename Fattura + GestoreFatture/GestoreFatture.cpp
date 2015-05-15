@@ -263,3 +263,79 @@ const int GestoreFatture::metodo7()
     return aziende_sportive.size();
 }
 
+/* 8) Restituire il numero di aziende che non compra prodotti CULTURALI. */
+const int GestoreFatture::metodo8()
+{
+   culturali = false;
+   list<string> aziende;
+   
+   for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+   {
+      for(list<Fattura>::iterator it_2 = fatture.begin(); it_2 != fatture.end(); it_2++)
+      {
+         if(it -> getAziendaRicevuta() == it_2 -> getAziendaRicevuta())
+         {
+            if(it -> getTipoProdotto() == CULTURALE)
+                culturali = true;
+         }
+      }
+      
+      if(!culturali)
+        aziende.push_back(it -> getAziendaRicevuta());
+        
+      culturali = false;
+   }
+   
+   aziende.sort();
+   aziende.unique();
+   
+   return aziende.size();      
+}
+
+/* 9) S(A) la somma degli importi delle fatture emesse da un'azienda A. Siano A1 e A2 due aziende distinte tale per cui S(A1) + S(A2) sia massimo rispetto a tutte le altre coppie di aziende. Restituire il valore di S(A1) + S(A2). */
+const int GestoreFatture::metodo9()
+{
+    list<string> aziende_emesse;
+    vector<int> somma_importi;
+    int somma_fatture = 0;
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        aziende_emesse.push_back(it -> getAziendeEmesse());
+    }
+    
+    aziende_emesse.sort();
+    aziende_emesse.unique();    
+    
+    for(list<string>::iterator it = aziende_emesse.begin(); it != aziende_emesse.end(); it++)
+    {
+        for(list<Fattura>::iterator it_2 = fatture.begin(); it_2 != fatture.end(); it_2++)
+        {
+            if(*it == it_2 -> getAziendeEmesse())
+            {
+                somma_fatture = somma_fatture + it_2 -> getImportoFattura();
+            }
+        }
+        
+        somma_importi.push_back(somma_fatture);
+        somma_fatture = 0;
+    }
+    
+    int coppia_max = somma_importi[0] + somma_importi[1];
+    
+    for(int i = 0; i < somma_importi.size(); i++)
+    {
+        for(int j = 0; j < somma_importi.size(); j++)
+         {
+            if( i != j)
+            {
+                if((somma_importi[i] + somma_importi[j]) > coppia_max)
+                {
+                    coppia_max = somma_importi[i] + somma_importi[j];
+                }
+            }
+         }
+    }
+    
+    return coppia_max;
+}
