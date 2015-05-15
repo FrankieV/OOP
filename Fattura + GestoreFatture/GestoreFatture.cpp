@@ -226,11 +226,11 @@ const int GestoreFatture::metodo7()
     {
         for(list<Fattura>::iterator it_2 = fatture.begin(); it != fatture.end(); it_2++)
         {
-            if(it -> getTipoProdotto() == ALIMENTARI)
+            if(it -> getTipoProdotto() == ALIMENTARE)
             {
                 if(it -> getAziendaEmessa() == it_2 -> getAziendaEmessa())
                 {
-                    if(it_2 -> getTipoProdotto() != ALIMENTARI)
+                    if(it_2 -> getTipoProdotto() != ALIMENTARE)
                         solo_alimentari = false;
                 }
             }
