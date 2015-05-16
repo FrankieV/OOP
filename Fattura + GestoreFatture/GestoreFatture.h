@@ -25,6 +25,7 @@ class GestoreFatture
   const int metodo9();
   const int metodo10();
   const string metodo11();
+  const string metodo12();
 
   private:
     list<Fattura> fatture;

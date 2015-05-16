@@ -437,5 +437,77 @@ const string GestoreFatture::metodo11()
    }
    
    return aziende_ordinate;
+}
 
+/* 12) Sia A l'azienda che compare di meno nelle fatture (cioe' quella che ha emesso e ricevuto meno fatture di tutte le altre). Restituire la stringa con il nome di tutte le aziende che hanno emesso/ricevuto una fattura a/da A separate da una virgola e uno spazio. Esempio di output: A1, A2, A3 (Le aziende devono essere ordinate in ordine lessicografico) */
+const string GestoreFatture::metodo12()
+{
+    list<string> aziende;
+    unsigned int fatture_emesse = 0;
+    unsigned int fatture_ricevute = 0;
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        aziende.push_back(it -> getAziendaEmessa());
+        aziende.push_back(it -> getAziendaRicevuta());
+    }
+    
+    aziende.sort();
+    aziende.unique();
+    
+    string A = aziende.front();
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        if(it -> getAziendaEmessa() == A)
+            fatture_emesse++;
+        else if(it -> getAziendaRicevuta() == A)
+            fatture_ricevute++;   
+    }
+    
+    unsigned int cont_emesse = 0;
+    unsigned int cont_ricevute = 0;
+    
+    for(list<string>::iterator it = aziende.begin(); it != aziende.end(); it++)
+    {
+        for(list<Fattura>::iterator it_2 = fatture.begin(); it_2 != fatture.end(); it_2++)
+        {
+            if(*it == it_2 -> getAziendaEmessa())
+                cont_emesse++;
+            else if(*it == it_2 -> getAziendaRicevuta())
+                cont_ricevute++;
+        }
+        
+        if(cont_emesse > fatture_emesse && cont_ricevute > fatture_ricevute)
+        {
+            fatture_emesse = cont_emesse;
+            fatture_ricevute = cont_ricevute;
+            A = *it;
+        }
+        
+        cont_emesse = 0;
+        cont_ricevute = 0;     
+    }
+    
+    list<string> aziende_emesse_ricevute;
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        if(it -> getAziendaRicevuta() == A)
+            aziende_emesse_ricevute.push_back(it -> getAziendaEmessa());
+        else if(it -> getAziendaEmessa() == A)
+            aziende_emesse_ricevute.push_back(it -> getAziendaRicevuta());
+    }
+    
+     aziende_emesse_ricevute.sort();
+     aziende_emesse_ricevute.unique();
+     
+     string aziende_ordinate;
+     
+     for(list<string>::iterator it = aziende_emesse_ricevute.begin(); it != aziende_emesse_ricevute.end(); it++)
+     {
+        aziende_ordinate.append(*it);
+        aziende_ordinate.append(" ,");
+     }
+    
+    return aziende_ordinate;
 }

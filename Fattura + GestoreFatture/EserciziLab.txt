@@ -15,12 +15,15 @@ Implementare inoltre una classe GestoreFatture che contenga una lista di fatture
 7) Restituire il numero di aziende che vende solo prodotti ALIMENTARI e compra almeno un prodotto SPORTIVO.
 8) Restituire il numero di aziende che non compra prodotti CULTURALI.
 9) S(A) la somma degli importi delle fatture emesse da un'azienda A. Siano A1 e A2 due aziende distinte tale per cui S(A1) + S(A2) sia massimo rispetto a tutte le altre coppie di aziende. Restituire il valore di S(A1) + S(A2).
-
--------------------------------------------------------
-
 10) Sia A1 l'azienda che ha emesso la fattura per un prodotto ALIMENTARE con l'importo pi?? alto. Sia A2 l'azienda che ha emesso la fattura per un prodotto SPORTIVO con l'importo pi?? basso. Restituire il numero di fatture emesse dall'azienda A1 all'azienda A2.
+
 11) Restituire la stringa con il nome di tutte le aziende che vendono solo prodotti ALIMENTARI separate da una virgola. Esempio di output: A1,A2,A3 (Le aziende devono essere ordinate in ordine lessicografico)
+
 12) Sia A l'azienda che compare di meno nelle fatture (cio?? quella che ha emesso e ricevuto meno fatture di tutte le altre). Restituire la stringa con il nome di tutte le aziende che hanno emesso/ricevuto una fattura a/da A separate da una virgola e uno spazio. Esempio di output: A1, A2, A3 (Le aziende devono essere ordinate in ordine lessicografico)
+
+-----------------------------------------------------------------------------------
+
+
 13) Restituire il nome dell'azienda che collabora con pi?? aziende.
 14) Restituire la somma degli importi delle fatture emesse dalle aziende che collaborano con la prima azienda in ordine lessicografico.
 15) Restituire la stringa con il nome di tutte le aziende che collabora con l'ultima azienda in ordine lessicografico. Esempio di output: A1A2A3 (Le aziende devono essere ordinate in ordine lessicografico)
