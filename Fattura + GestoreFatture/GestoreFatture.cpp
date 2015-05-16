@@ -266,7 +266,7 @@ const int GestoreFatture::metodo7()
 /* 8) Restituire il numero di aziende che non compra prodotti CULTURALI. */
 const int GestoreFatture::metodo8()
 {
-   culturali = false;
+   bool culturali = false;
    list<string> aziende;
    
    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
@@ -301,7 +301,7 @@ const int GestoreFatture::metodo9()
     
     for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
     {
-        aziende_emesse.push_back(it -> getAziendeEmesse());
+        aziende_emesse.push_back(it -> getAziendaEmessa());
     }
     
     aziende_emesse.sort();
@@ -311,7 +311,7 @@ const int GestoreFatture::metodo9()
     {
         for(list<Fattura>::iterator it_2 = fatture.begin(); it_2 != fatture.end(); it_2++)
         {
-            if(*it == it_2 -> getAziendeEmesse())
+            if(*it == it_2 -> getAziendaEmessa())
             {
                 somma_fatture = somma_fatture + it_2 -> getImportoFattura();
             }
@@ -338,4 +338,104 @@ const int GestoreFatture::metodo9()
     }
     
     return coppia_max;
+}
+
+/* 10) Sia A1 l'azienda che ha emesso la fattura per un prodotto ALIMENTARE con l'importo piu' alto. Sia A2 l'azienda che ha emesso la fattura per un prodotto SPORTIVO con l'importo piu' basso. Restituire il numero di fatture emesse dall'azienda A1 all'azienda A2. */
+const int GestoreFatture::metodo10()
+{
+    string A1;
+    string A2;
+    int importo_alimentare_alto = 0;
+    int importo_sportivo_basso = 0;
+    bool primo_alimentare = true;
+    bool primo_sportivo = true;
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        if(it -> getTipoProdotto() == ALIMENTARE && primo_alimentare)
+        {
+            A1 = it -> getAziendaEmessa();
+            importo_alimentare_alto = it -> getImportoFattura();
+            primo_alimentare = false;
+        }
+        
+        if(it -> getTipoProdotto() == SPORTIVO && primo_sportivo)
+        {
+            A2 = it -> getAziendaEmessa();
+            importo_sportivo_basso = it -> getImportoFattura();
+            primo_sportivo = false;
+        }
+    }
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        if(it -> getTipoProdotto() == ALIMENTARE)
+        {
+            if(it -> getImportoFattura() > importo_alimentare_alto)
+            {
+                importo_alimentare_alto = it -> getImportoFattura();
+                A1 = it -> getAziendaEmessa();
+            }
+        }
+        
+        if(it -> getTipoProdotto() == SPORTIVO)
+        {
+            if(it -> getImportoFattura() < importo_sportivo_basso)
+            {
+                importo_sportivo_basso = it -> getImportoFattura();
+                A2 = it -> getAziendaEmessa();
+            }
+        }
+    }
+    
+    int cont_fatture = 0;
+    
+    for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+    {
+        if( it -> getAziendaEmessa() == A1 && it -> getAziendaRicevuta() == A2)
+            cont_fatture++;
+    }
+    
+    return cont_fatture;
+}
+
+/*11) Restituire la stringa con il nome di tutte le aziende che vendono solo prodotti ALIMENTARI separate da una virgola. Esempio di output: A1,A2,A3 (Le aziende devono essere ordinate in ordine lessicografico)*/
+const string GestoreFatture::metodo11()
+{
+   list<string> aziende_alimentari;
+   bool solo_alimentari = true;
+   
+   for(list<Fattura>::iterator it = fatture.begin(); it != fatture.end(); it++)
+   {
+      for(list<Fattura>::iterator it_2 = fatture.begin(); it_2 != fatture.end(); it_2++)
+      {
+        if(it -> getTipoProdotto() == ALIMENTARE)
+        {
+            if(it -> getAziendaEmessa() == it_2 -> getAziendaEmessa())
+            {
+                if(it_2 -> getTipoProdotto() != ALIMENTARE)
+                    solo_alimentari = false;
+            }
+        }
+      }
+      
+      if(solo_alimentari)
+        aziende_alimentari.push_back(it -> getAziendaEmessa());
+        
+       solo_alimentari = false; 
+   } 
+   
+   aziende_alimentari.sort();
+   aziende_alimentari.unique();
+   
+   string aziende_ordinate;
+   
+   for(list<string>::iterator it = aziende_alimentari.begin(); it != aziende_alimentari.end(); it++)
+   {
+        aziende_ordinate.append(*it);
+        aziende_ordinate.append(",");
+   }
+   
+   return aziende_ordinate;
+
 }
