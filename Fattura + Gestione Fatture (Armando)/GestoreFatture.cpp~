@@ -170,7 +170,7 @@ int GestoreFatture::metodo6()
 	soloProdottiSportivi.sort();
 	soloProdottiSportivi.unique();
 	soloProdottiCulturali.sort();
-	soloProdottiCulturali.unique();
+	soloProdottiSportivi.unique();
 	return soloProdottiSportivi.size() - soloProdottiCulturali.size();
 }
 
