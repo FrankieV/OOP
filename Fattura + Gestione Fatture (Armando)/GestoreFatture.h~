@@ -29,7 +29,7 @@ class GestoreFatture
 
 		string metodo11();
 		
-		string metodo12();
+		int metodo12();
 
 		int metodo13();
 
