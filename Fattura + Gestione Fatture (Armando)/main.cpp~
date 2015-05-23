@@ -61,7 +61,7 @@ int main()
 	
 	cout << endl << endl << "                           ::::Tredicesimo Metodo:::" << endl << endl;
 	cout << "Restituire il nome dell'azienda che collabora con più aziende." << endl << endl;
-	cout << "In questo caso è :" << GF.metodo13() << endl << endl;
+	cout << "In questo caso è :" << GF.metodo12() << endl << endl;
 //	for( int i = 0; i < 5; i++)
 //		{
 //			cout << f[i];
