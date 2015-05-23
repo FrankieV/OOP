@@ -660,10 +660,7 @@ string GestoreFatture::metodo15()
 	
 	for( list<string>:: iterator it1 = Collaboratrici.begin(); it1 != Collaboratrici.end(); it1++ )
 		AziendeCollaboratrici.append(*it1);
-	
-	if( AziendeCollaboratrici.empty())
-		return "EMPTY";
- 
+
 	return AziendeCollaboratrici;
 }
 

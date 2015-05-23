@@ -73,7 +73,7 @@ int main()
 
 	cout << endl << endl << "                           ::::Sedicesimo Metodo:::" << endl << endl;
 	cout << "Restituire la somma degli importi delle fatture emesse dall'azienda che ha meno collaborazioni con altre aziende." << endl << endl;
-	cout << "In questo caso è :" << GF.metodo16() << endl << endl;
+	cout << "In questo caso è :" << GF.metodo15() << endl << endl;
 //	for( int i = 0; i < 5; i++)
 //		{
 //			cout << f[i];
