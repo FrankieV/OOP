@@ -483,82 +483,71 @@ string GestoreFatture::metodo12()
 /*Restituire il nome dell'azienda che collabora con più aziende.*/
 string GestoreFatture::metodo13()
 {
-	if( fatture.empty()) 
-		return "EMPTY";
-
-	int max = 0;
-	list<string> Aziende;
-	list<string> Collaboratrici;
-	string Massima_Collaboratrice;
-	bool presente_dir = false;	
-	bool presente_in = false;
-	for( list<Fattura>:: iterator it = fatture.begin(); it != fatture.end(); it++ )
-		{
-			Aziende.push_back( it -> getAziendaEmittente());
-			Aziende.push_back( it -> getAziendaRicevente());
-		}
-	Aziende.sort();
-	Aziende.unique();
-
-	for( list<string>:: iterator it1 = Aziende.begin(); it1 != Aziende.end(); it1++ )
-		{
-			for( list<Fattura>:: iterator it2 = fatture.begin(); it2 != fatture.end(); it2++ )
-				{
-					if( *it1 == it2 -> getAziendaEmittente() )
-						{
-							for( list<string>:: iterator ite1 = Collaboratrici.begin(); ite1 != Collaboratrici.end(); ite1++ )
-								{
-									if( it2 -> getAziendaRicevente() == *ite1 )
-										presente_dir = true;
-								}							
-							if( presente_dir == false )
-								{
-									presente_dir = false;
-									Collaboratrici.push_back( it2 -> getAziendaRicevente());		
-									for( list<string>:: iterator it3 = Collaboratrici.begin(); it3 != Collaboratrici.end(); it3++ )
-										{
-											for( list<Fattura>:: iterator it4 = fatture.begin(); it4 != fatture.end(); it4++ )
-												{
-													if( *it3 == it4 -> getAziendaEmittente())
-														{
-															for( list<string>:: iterator ite2 = Collaboratrici.begin(); ite2 != Collaboratrici.end(); ite2++ )
-																{
-																	if( it4 -> getAziendaRicevente() == *ite2 )
-																		presente_in = true;
-																}
-															if( presente_in == false )
-																Collaboratrici.push_back( it4 -> getAziendaRicevente());
-														}
-													presente_in = false;
-												}
-										}
-									}
-							}
-						presente_dir = false;					
-					}
-	
-			Collaboratrici.sort();
-			Collaboratrici.unique();
-		
-			if( Collaboratrici.size() > max )
-				{
-					max = Collaboratrici.size();
-					Massima_Collaboratrice = *it1;
-				}
-
-			Collaboratrici.clear();
-		}
-
-	cout << endl << endl;
-	return Massima_Collaboratrice;
-		
-	
+	return "EMPTY";
 }
 
 /*Restituire la somma degli importi delle fatture emesse dalle aziende che collaborano con la prima azienda in ordine lessicografico.*/
 int GestoreFatture::metodo14()
 {
+	if( fatture.empty()) 
+		return -1;
 
+	list<string> Aziende;
+	list<string> Collaboratrici;
+	string Azienda;
+	string AziendaCollaboratrice;
+	bool presente = false;
+
+	for( list<Fattura>:: iterator it = fatture.begin(); it != fatture.end(); it++ )
+		{
+			Aziende.push_back( it -> getAziendaEmittente());
+			Aziende.push_back( it -> getAziendaRicevente());
+		}
+
+	Aziende.sort();
+	Aziende.unique();
+	Azienda = Aziende.front();
+
+	for( list<Fattura>:: iterator it = fatture.begin(); it != fatture.end(); it++ )
+		{
+			if( Azienda == it -> getAziendaEmittente())
+				Collaboratrici.push_back( it -> getAziendaRicevente());	
+		}
+
+	Collaboratrici.sort();
+	Collaboratrici.unique();
+	
+	for( list<string>:: iterator it1 = Collaboratrici.begin(); it1 != Collaboratrici.end(); it1++ )
+		{
+			for( list<Fattura>:: iterator it2 = fatture.begin(); it2 != fatture.end(); it2++ )
+				{
+					if( *it1 == it2 -> getAziendaEmittente())
+						{
+							for( list<string>:: iterator it = Collaboratrici.begin(); it != Collaboratrici.end(); it++ )
+								{
+									if( *it == it2 -> getAziendaRicevente())
+										presente = true;
+								}
+							if( presente == false )
+								Collaboratrici.push_back( it2 -> getAziendaRicevente());
+						}
+					presente = false;
+				}
+		}
+
+	int cont_importi = 0;
+	
+	for( list<string>:: iterator it1 = Collaboratrici.begin(); it1 != Collaboratrici.end(); it1++ )
+		{
+			for( list<Fattura>:: iterator it2 = fatture.begin(); it2 != fatture.end(); it2++ )
+				{
+					if( *it1 == it2 -> getAziendaEmittente())
+						cont_importi += it2 -> getImporto(); 
+				}
+		}
+
+	cout << Azienda << " ";
+	return cont_importi;
 }
 
 /*Restituire la stringa con il nome di tutte le aziende che collabora con l'ultima azienda in ordine lessicografico. Esempio di output: A1A2A3 (Le aziende devono essere ordinate in ordine lessicografico)*/

@@ -62,6 +62,10 @@ int main()
 	cout << endl << endl << "                           ::::Tredicesimo Metodo:::" << endl << endl;
 	cout << "Restituire il nome dell'azienda che collabora con più aziende." << endl << endl;
 	cout << "In questo caso è :" << GF.metodo13() << endl << endl;
+
+	cout << endl << endl << "                           ::::Quattordicesimo Metodo:::" << endl << endl;
+	cout << "Restituire la somma degli importi delle fatture emesse dalle aziende che collaborano con la prima azienda in ordine lessicografico." << endl << endl;
+	cout << "In questo caso è :" << GF.metodo14() << endl << endl;
 //	for( int i = 0; i < 5; i++)
 //		{
 //			cout << f[i];
