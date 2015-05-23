@@ -489,10 +489,9 @@ string GestoreFatture::metodo13()
 	int max = 0;
 	list<string> Aziende;
 	list<string> Collaboratrici;
-	string Collaboratrice;
 	string Massima_Collaboratrice;
-	bool presente = false;	
-	
+	bool presente_dir = false;	
+	bool presente_in = false;
 	for( list<Fattura>:: iterator it = fatture.begin(); it != fatture.end(); it++ )
 		{
 			Aziende.push_back( it -> getAziendaEmittente());
@@ -506,27 +505,37 @@ string GestoreFatture::metodo13()
 			for( list<Fattura>:: iterator it2 = fatture.begin(); it2 != fatture.end(); it2++ )
 				{
 					if( *it1 == it2 -> getAziendaEmittente() )
-						{	
-							for( list<string>:: iterator it = Collaboratrici.begin(); it != Collaboratrici.end(); it++)
+						{
+							for( list<string>:: iterator ite1 = Collaboratrici.begin(); ite1 != Collaboratrici.end(); ite1++ )
 								{
-									if( it2 -> getAziendaRicevente() == *it )
-										presente = true;
-								}
-
-							if( presente == false )
-								Collaboratrici.push_back( it2 -> getAziendaRicevente());
-
-							for( list<string>:: iterator it3 = Collaboratrici.begin(); it3 != Collaboratrici.end(); it3++ )
+									if( it2 -> getAziendaRicevente() == *ite1 )
+										presente_dir = true;
+								}							
+							if( presente_dir == false )
 								{
-									for( list<Fattura>:: iterator it4 = fatture.begin(); it4 != fatture.end(); it4++ )						
-										{		
-											if( *it3 == it4 -> getAziendaEmittente())
-												Collaboratrici.push_back( it4 -> getAziendaRicevente());
+									presente_dir = false;
+									Collaboratrici.push_back( it2 -> getAziendaRicevente());		
+									for( list<string>:: iterator it3 = Collaboratrici.begin(); it3 != Collaboratrici.end(); it3++ )
+										{
+											for( list<Fattura>:: iterator it4 = fatture.begin(); it4 != fatture.end(); it4++ )
+												{
+													if( *it3 == it4 -> getAziendaEmittente())
+														{
+															for( list<string>:: iterator ite2 = Collaboratrici.begin(); ite2 != Collaboratrici.end(); ite2++ )
+																{
+																	if( it4 -> getAziendaRicevente() == *ite2 )
+																		presente_in = true;
+																}
+															if( presente_in == false )
+																Collaboratrici.push_back( it4 -> getAziendaRicevente());
+														}
+													presente_in = false;
+												}
 										}
-								}
-						}
-					presente = false;
-				}
+									}
+							}
+						presente_dir = false;					
+					}
 	
 			Collaboratrici.sort();
 			Collaboratrici.unique();
