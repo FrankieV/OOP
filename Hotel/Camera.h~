@@ -15,8 +15,8 @@ class Camera
 		virtual void print() const = 0;//funzione virtuale pura
 
 	private:
-		static int cont;	
-		int NumeroCamera;
+		static int *cont;	
+		int *NumeroCamera;
 };
 
 #endif

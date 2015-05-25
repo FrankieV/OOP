@@ -8,9 +8,9 @@
 class Singola : public Camera
 {
 	public:
-		Singola();
-		int getPrezzo() const;
-		void print() const;
+		Singola() : Camera(), Prezzo(30){}//Costruttore per la classe Singola che utilizza quello della classe base astratta Camera
+		int getPrezzo() const { return Prezzo; }
+		void print() const { cout << endl << "CAMERA SINGOLA" << endl << "Numero: " << getNum() << endl << "Prezzo: " << Prezzo; }
 	
 	private:
 		int Prezzo;

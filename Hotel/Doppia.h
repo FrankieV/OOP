@@ -8,9 +8,9 @@
 class Doppia : public Camera
 {
 	public:
-		Doppia();
-		int getPrezzo() const;
-		void print() const;
+		Doppia(): Camera(), Prezzo(50){}//Costruttore per la classe Doppia che utilizza quello della classe base astratta Camera
+		int getPrezzo() const { return Prezzo; }
+		void print() const { cout << endl << "CAMERA DOPPIA" << endl << "Numero: " << getNum() << endl << "Prezzo: " << Prezzo; }
 
 	private:
 		int Prezzo;

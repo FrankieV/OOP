@@ -9,21 +9,23 @@ Hotel::Hotel( int ns, int nd, int nt ): numSingole(ns), numDoppie(nd), numTriple
 				{
 					Singola s;
 					camere.push_back( &s );
+					camere.back() -> print();
 				}
 
 			//inizializza le camere doppie
 			if( i >= numSingole && i < numDoppie + numSingole )
 				{
 					Doppia d;
-					camere.push_back( &d );
+					camere.push_back( &d );	
+					camere.back() -> print();
 				}
 
 			//inizializza le camere triple
 			if( i >= numDoppie + numSingole && i < numTriple + numDoppie + numSingole)
 				{
 					Tripla t;
-					t.print();
-					camere.push_back( &t );		
+					camere.push_back( &t );
+					camere.back() -> print();		
 				}
 		}
 }
@@ -51,6 +53,6 @@ list<Camera*> Hotel::getCamere() const
 void Hotel::stampa()
 {
 	cout << "Salve questo è un Hotel della catena Ollivier Hint, questo Hotel ha " << numSingole + numDoppie + numTriple << " camere";
-			
+	camere.back() -> print();
 }
 

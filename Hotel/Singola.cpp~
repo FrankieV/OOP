@@ -12,7 +12,8 @@ int Singola::getPrezzo() const
 
 void Singola::print() const
 {
+	cout << endl;
 	cout << "CAMERA SINGOLA" << endl;
-	cout << "Numero: " << getNum() << endl;
-	cout << "Prezzo: " << Prezzo;
+//	cout << "Numero: " << getNum() << endl;
+//	cout << "Prezzo: " << Prezzo;
 }

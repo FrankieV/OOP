@@ -12,7 +12,8 @@ int Doppia::getPrezzo() const
 
 void Doppia::print() const
 {
+	cout << endl;
 	cout << "CAMERA DOPPIA" << endl;
-	cout << "Numero: " << getNum() << endl;
-	cout << "Prezzo: " << Prezzo;
+//	cout << "Numero: " << getNum() << endl;
+//	cout << "Prezzo: " << Prezzo;
 }

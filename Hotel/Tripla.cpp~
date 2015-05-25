@@ -12,7 +12,8 @@ int Tripla::getPrezzo() const
 
 void Tripla::print() const
 {
+	cout << endl;
 	cout << "CAMERA TRIPLA" << endl;
-	cout << "Numero: " << getNum() << endl;
-	cout << "Prezzo: " << Prezzo;
+//	cout << "Numero: " << getNum() << endl;
+//	cout << "Prezzo: " << Prezzo;
 }
