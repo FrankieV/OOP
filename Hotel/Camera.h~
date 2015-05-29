@@ -14,6 +14,7 @@ class Camera
 		void setOccupata();
 		void setLibera();
 		bool getOccupata() const;
+		virtual void setPrezzo( int ) = 0; //funzione virtuale pura
 		virtual int getPrezzo() const = 0;//funzione virutale pura
 		virtual void print() const = 0;//funzione virtuale pura 
 

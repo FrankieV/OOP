@@ -208,7 +208,7 @@ void Hotel::stampaPrenotazioni()
 
 	int count = 1;
 	
-	cout <<"In questo hotel sono presenti " << prenotazioni.size() << " prenotazioni:" << endl;
+	cout <<"In questo hotel sono presenti " << prenotazioni.size() << " prenotazioni." << endl;
 	
 	cout << endl;
 	cout << "__________________________________________________________" << endl;

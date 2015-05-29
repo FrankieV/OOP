@@ -6,7 +6,7 @@ int Camera::cont = 0;
 
 Camera::Camera()
 {
-    occupata = false;
+		occupata = false;
     cont++;
     NumeroCamera = cont;
 }

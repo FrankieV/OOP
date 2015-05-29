@@ -1,0 +1,22 @@
+#include "Prenotazione.h"
+
+#ifndef GESTIONEHOTEL_H
+#define GESTIONEHOTEL_H
+
+class GesioneHotel
+{
+	public:
+		GestioneHotel();
+		void inserisciPrenotazione();
+		void eliminaPrenotazione();
+		int getTotalePrenotazioni() const;
+		int getNumeroPrenotazioni() const;
+		void stampaPrenotazioni() const;
+		void stampaCamereDisponibili() const;
+	
+	private:
+		
+		list<Prenotazione*> prenotazioni;
+};
+
+#endif

@@ -29,7 +29,7 @@ class Hotel
 		void stampaPrenotazioni();
 	
 	private:
-		list<Prenotazione> prenotazioni;
+		list<Prenotazione*> prenotazioni;
 		list<Camera*> camere;
 		int numSingole;
 		int numDoppie;		
