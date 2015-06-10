@@ -20,6 +20,7 @@ class Alitalia
     void add(Tratta t);
     inline list<Tratta>& getContent();
     void stampalista();
+    void ordinaDistanze(vector<int> &);
 };
 list<Tratta>& Alitalia::getContent()
 {
