@@ -28,7 +28,12 @@ class Tratta
       void setA(string);
       void setDistanza(int);
       void setTipo(TipoAereo); 
+<<<<<<< HEAD
       bool operator==(const Tratta&)const;	
       bool operator<(const Tratta&) const;
+=======
+      bool operator==(const Tratta&)const;
+	 bool operator<(const Tratta&) const;
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 };
 #endif

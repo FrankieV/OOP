@@ -1,5 +1,9 @@
 #include"Alitalia.h"
+<<<<<<< HEAD
 #include<string>
+=======
+
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 /*
 Sia X la media delle distanze di tutte le tratte. Determinare la MEDIA 
 distanza fra quelle che hanno una distanza minore o uguale a X.
@@ -8,6 +12,7 @@ Se la lista delle tratte e' vuota, restituire -1;
 */
 int Alitalia:: metodo1()
 {
+<<<<<<< HEAD
 	if( tratte.empty() )
 		return -1;
 		
@@ -38,6 +43,33 @@ int Alitalia:: metodo1()
 	Media_Distanza = somma_distanze / cont_tratte;
 
 	return Media_Distanza;
+=======
+    if(tratte.empty())
+        return -1;
+         
+	int X = 0;
+	int somma_distanze = 0;
+	for(list<Tratta>::iterator it = tratte.begin(); it != tratte.end(); it++)
+	{
+	    somma_distanze += it -> getDistanza();
+	}
+	
+	X = somma_distanze / tratte.size();
+	
+	somma_distanze = 0;
+	int cont = 0;
+	
+	for(list<Tratta>::iterator it = tratte.begin(); it != tratte.end(); it++)
+	{
+	    if(it -> getDistanza() <= X)
+	    {
+	        somma_distanze += it -> getDistanza();
+	        cont++;
+	    }
+	}
+	
+	return somma_distanze / cont;
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 	
 }
 
@@ -61,6 +93,7 @@ per difetto);
 
 int Alitalia::metodo2(Percentile p)
 {
+<<<<<<< HEAD
 
 	if( tratte.empty() )
 		return -1;	
@@ -109,6 +142,31 @@ int Alitalia::metodo2(Percentile p)
 		}
 
 	
+=======
+    if(tratte.empty())
+        return -1;
+        
+	vector<int> distanze;
+	for(list<Tratta>::iterator it = tratte.begin(); it != tratte.end(); it++)
+	{
+	    distanze.push_back(it -> getDistanza());
+	}
+	
+	ordinaDistanze(distanze);
+	
+	switch(p)
+	{
+	    case(PRIMO_QUARTILE):
+	        return distanze[distanze.size()/4];
+	        break;
+	    case(MEDIANA):
+	        return distanze[distanze.size()/2];
+	        break;
+	    case(TERZO_QUARTILE):
+	        return distanze[(3*distanze.size())/4];
+	        break;
+	}
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 	
 	
 }
@@ -129,6 +187,7 @@ di destinazione, restituire false;
 
 bool Alitalia::metodo3(string partenza,string destinazione)
 {
+<<<<<<< HEAD
 
 	if( partenza == destinazione )
 		return true;
@@ -176,6 +235,20 @@ bool Alitalia::metodo3(string partenza,string destinazione)
 				return true;
 		}
 			
+=======
+	if(tratte.empty() && partenza != destinazione)
+	return false;
+	
+	if(partenza == destinazione)
+	return true;
+	
+	for(list<Tratta>::iterator it = tratte.begin(); it != tratte.end(); it++)
+	{
+	    if(it -> getDa() == partenza && it -> getA() == destinazione)
+	        return true;
+	}
+	
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 	return false;
 }
 
@@ -186,6 +259,7 @@ da cui partono e arrivano solo aerei di tipo t.
 */
 int Alitalia::metodo4(TipoAereo t)
 {
+<<<<<<< HEAD
 	if( tratte.empty())
 		return -1;
 
@@ -223,9 +297,71 @@ int Alitalia::metodo4(TipoAereo t)
 	CittaTipot.unique();
 	
 	return CittaTipot.size();
+=======
+	list<string> CittaPartenzaArrivo;
+	list<string> solo_t;
+	bool solo_tipo_t = true;
+	
+	for(list<Tratta>::iterator it = tratte.begin(); it != tratte.end(); it++)
+	{
+	    if(it -> getTipo() == t)
+	    {
+	        CittaPartenzaArrivo.push_back(it -> getA());
+	        CittaPartenzaArrivo.push_back(it -> getDa());
+	    }
+	}
+	
+	CittaPartenzaArrivo.sort();
+	CittaPartenzaArrivo.unique();
+	
+	for(list<string>::iterator it = CittaPartenzaArrivo.begin(); it != CittaPartenzaArrivo.end(); it++)
+	{
+	    for(list<Tratta>::iterator it_2 = tratte.begin(); it_2 != tratte.end(); it_2++)
+	    {
+	        if(*it == it_2 -> getA() || *it == it_2 -> getDa())
+	        {
+	            if(it_2 -> getTipo() != t)
+	                solo_tipo_t = false;
+	        } 
+	    }   
+	    
+	    if(solo_tipo_t)
+	        solo_t.push_back(*it);
+	        
+	     solo_tipo_t = true; 
+	}
+	
+	return solo_t.size();
+	
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
 }
 
 void Alitalia::add(Tratta t)
 {
  tratte.push_back(t);
 }
+<<<<<<< HEAD
+=======
+
+void Alitalia::ordinaDistanze(vector<int> &distanze)
+{
+    int tmp;
+    for(int i = 0; i < distanze.size(); i++)
+    {
+        for(int j = i; j < distanze.size(); j++)
+        {
+            if(distanze[i] > distanze[j])
+            {
+                tmp = distanze[j];
+                distanze[j] = distanze[i];
+                distanze[i] = tmp;
+            }
+        }
+    
+    }
+
+}
+
+
+
+>>>>>>> 044ce621082209a3cc6d4ede41bd36b1273d403c
