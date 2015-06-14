@@ -29,7 +29,6 @@ class Hotel
 		list<Prenotazione> getPrenotazioni() const;	
 		void stampa();
 		void stampaPrenotazioni();
-		void push_front(Prenotazione p);
 	
 	private:
 		list<Prenotazione> prenotazioni;

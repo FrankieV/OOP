@@ -11,7 +11,6 @@ using namespace std;
 class Singola : public Camera
 {
 	public:
-		bool operator == ( const Camera& );
 		Singola() : Camera(), Prezzo(30){}//Costruttore per la classe Singola che utilizza quello della classe base astratta Camera
 		int getPrezzo() const { return Prezzo; }
 		void print() const { cout << endl << "CAMERA SINGOLA" << endl << "Numero: " << getNum() << endl << "Prezzo: " << Prezzo << endl << "Questa camera e' " << (( getOccupata())? "Occupata" : "Libera" ) << endl; }

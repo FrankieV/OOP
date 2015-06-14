@@ -18,12 +18,9 @@ int main()
 	cout << endl;
 
 	Hotel h( numSingole, numDoppie, numTriple);
-	
-	Hotel h1(h);
 
 	h.stampa();
 
-	h1.stampa();
 //	cout << "Quante prenotazioni vuoi immettere nel sistema? " << endl;
 //	cin >> num;
 

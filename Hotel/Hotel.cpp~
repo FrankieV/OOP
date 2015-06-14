@@ -224,7 +224,7 @@ void Hotel::stampa_iteratore( list<Camera*>:: iterator it1)
 {
 	for(list<Camera*>:: iterator it = camere.begin(); it != camere.end(); it++)
 		if( it1 == it )
-			it = camere.erase(it);
+			it = erase(it);
 }
 
 void Hotel::stampaPrenotazioni()

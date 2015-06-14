@@ -380,7 +380,7 @@ string GestoreFatture::metodo11()
 				}
 			else
 				{
-					Aziende_Alimentari.append("," );
+					Aziende_Alimentari.append(", " );
 					Aziende_Alimentari.append( *it );
 				}
 		}
